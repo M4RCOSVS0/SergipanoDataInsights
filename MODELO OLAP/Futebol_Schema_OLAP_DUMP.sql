@@ -1,16 +1,8 @@
 USE futebol_OLAP_db;
 
--- Extract unique stadiums
-INSERT INTO DimEstadio (Nome, Capacidade, Cidade) VALUES
-('Arena Batistão', 15575, 'Aracaju'),
-('Aristron Azevedo', 3000, 'N.Sra das Dores'),
-('Paulo Barreto', 8000, 'Lagarto'),
-('Etelvino Mendonça', 10000, 'Itabaiana'),
-('Durval Feitosa', 2000, 'Propriá'),
-('Caio Feitosa', 3000, 'Porto da Folha');
 
 -- Extract unique clubs
-INSERT INTO DimClube (Nome, Titulos, Fundacao, Sede, participacao) VALUES
+INSERT INTO DimClube (Nome, Titulos, Fundacao, Sede, Participacoes) VALUES
 ('Sergipe', 37, '19091017', 'Aracaju', 102),
 ('Barra', 0, '20140321', 'Barra dos Coqueiros', 1),
 ('Dorense', 0, '19480530', 'Nossa Senhora das Dores', 16),
@@ -59,365 +51,176 @@ VALUES('GENERICO','ESTADUAL')
 
 -- Rodada 1
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (1, 1, 1, NULL, NULL, '1 X 1'); -- Sergipe x Barra
+VALUES (1, 1, 1, 903, 9020, '1 X 1'); -- Sergipe x Barra
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (1, 2, 1, NULL, NULL, '0 X 2'); -- Dorense x Falcon
+VALUES (1, 2, 1, 335, 11250, '0 X 2'); -- Dorense x Falcon
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (1, 3, 1, NULL, NULL, '2 X 1'); -- Lagarto x América
+VALUES (1, 3, 1, 178, 1990, '2 X 1'); -- Lagarto x América
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (2, 1, 1, NULL, NULL, '5 X 1'); -- Confiança x Guarany
+VALUES (2, 1, 1, 2928, 58568, '5 X 1'); -- Confiança x Guarany
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (1, 4, 1, NULL, NULL, '2 X 1'); -- Itabaiana x Carmópolis
+VALUES (1, 4, 1, 1019, 10662, '2 X 1'); -- Itabaiana x Carmópolis
 
 -- Rodada 2
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (3, 5, 1, NULL, NULL, '1 X 0'); -- América x Dorense
+VALUES (3, 5, 1, 317, 2578, '1 X 0'); -- América x Dorense
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (9, 3, 1, NULL, NULL, '0 X 5'); -- Barra x Lagarto
+VALUES (9, 3, 1, 688, 10480, '0 X 5'); -- Barra x Lagarto
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (4, 1, 1, NULL, NULL, '1 X 2'); -- Carmópolis x Sergipe
+VALUES (4, 1, 1, 728, 12580, '1 X 2'); -- Carmópolis x Sergipe
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (8, 6, 1, NULL, NULL, '1 X 1'); -- Guarany x Itabaiana
+VALUES (8, 6, 1, 515, 10300, '1 X 1'); -- Guarany x Itabaiana
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (5, 1, 1, NULL, NULL, '1 X 3'); -- Falcon x Confiança
+VALUES (5, 1, 1, 2080, 58065, '1 X 3'); -- Falcon x Confiança
 
 -- Rodada 3
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (12, 5, 1, NULL, NULL, '1 X 1'); -- América x Confiança
+VALUES (12, 5, 1, 562, 7500, '1 X 1'); -- América x Confiança
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (7, 1, 1, NULL, NULL, '4 X 0'); -- Falcon x Barra
+VALUES (7, 1, 1, 168, 500, '4 X 0'); -- Falcon x Barra
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (7, 2, 1, NULL, NULL, '0 X 0'); -- Dorense x Carmópolis
+VALUES (7, 2, 1, 295, 4000, '0 X 0'); -- Dorense x Carmópolis
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (6, 3, 1, NULL, NULL, '4 X 0'); -- Lagarto x Guarany
+VALUES (6, 3, 1, 706, 6370, '4 X 0'); -- Lagarto x Guarany
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (6, 4, 1, NULL, NULL, '1 X 1'); -- Itabaiana x Sergipe
+VALUES (6, 4, 1, 3250, 51182, '1 X 1'); -- Itabaiana x Sergipe
 
 -- Rodada 4
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (11, 1, 1, NULL, NULL, '1 X 2'); -- Carmópolis x Confiança
+VALUES (11, 1, 1, 1081, 24150, '1 X 2'); -- Carmópolis x Confiança
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (11, 6, 1, NULL, NULL, '1 X 0'); -- Guarany x Barra
+VALUES (11, 6, 1, 354, 7080, '1 X 0'); -- Guarany x Barra
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (10, 5, 1, NULL, NULL, '1 X 1'); -- América x Itabaiana
+VALUES (10, 5, 1, 347, 3200, '1 X 1'); -- América x Itabaiana
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (10, 1, 1, NULL, NULL, '0 X 1'); -- Sergipe x Falcon
+VALUES (10, 1, 1, 1167, 13436, '0 X 1'); -- Sergipe x Falcon
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (11, 3, 1, NULL, NULL, '1 X 1'); -- Lagarto x Dorense
+VALUES (11, 3, 1, 1226, 11520, '1 X 1'); -- Lagarto x Dorense
 
 -- Rodada 5
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (14, 1, 1, NULL, NULL, '4 X 0'); -- Confiança x Lagarto
+VALUES (14, 1, 1, 2737, 49650, '4 X 0'); -- Confiança x Lagarto
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (13, 2, 1, NULL, NULL, '0 X 1'); -- Dorense x Sergipe
+VALUES (13, 2, 1, 637, 16130, '0 X 1'); -- Dorense x Sergipe
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (14, 5, 1, NULL, NULL, '3 X 0'); -- América x Guarany
+VALUES (14, 5, 1, 306, 2055, '3 X 0'); -- América x Guarany
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (13, 4, 1, NULL, NULL, '4 X 0'); -- Itabaiana x Falcon
+VALUES (13, 4, 1, 1735, 28290, '4 X 0'); -- Itabaiana x Falcon
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (15, 3, 1, NULL, NULL, '3 X 2'); -- Barra x Carmópolis
+VALUES (15, 3, 1, 12, 120, '3 X 2'); -- Barra x Carmópolis
 
 -- Rodada 6
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (17, 1, 1, NULL, NULL, '2 X 1'); -- Confiança x Sergipe
+VALUES (17, 1, 1, 8579, 245557, '2 X 1'); -- Confiança x Sergipe
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (16, 3, 1, NULL, NULL, '0 X 1'); -- Lagarto x Itabaiana
+VALUES (16, 3, 1, 1819, 34555, '0 X 1'); -- Lagarto x Itabaiana
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (16, 2, 1, NULL, NULL, '1 X 2'); -- Dorense x Guarany
+VALUES (16, 2, 1, 283, 1860, '1 X 2'); -- Dorense x Guarany
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (18, 1, 1, NULL, NULL, '3 X 2'); -- Falcon x Carmópolis
+VALUES (18, 1, 1, 131, 150, '3 X 2'); -- Falcon x Carmópolis
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (17, 3, 1, NULL, NULL, '1 X 0'); -- Barra x América
+VALUES (17, 3, 1, 15, 210, '1 X 0'); -- Barra x América
 
 -- Rodada 7
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (19, 1, 1, NULL, NULL, '8 X 1'); -- Confiança x Barra
+VALUES (19, 1, 1, 1585, 18464, '8 X 1'); -- Confiança x Barra
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (19, 2, 1, NULL, NULL, '1 X 1'); -- Carmópolis x América
+VALUES (19, 2, 1, 15, 330, '1 X 1'); -- Carmópolis x América
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (19, 6, 1, NULL, NULL, '2 X 0'); -- Guarany x Falcon
+VALUES (19, 6, 1, 533, 8400, '2 X 0'); -- Guarany x Falcon
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (20, 4, 1, NULL, NULL, '4 X 1'); -- Itabaiana x Dorense
+VALUES (20, 4, 1, 2107, 32965, '4 X 1'); -- Itabaiana x Dorense
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (20, 1, 1, NULL, NULL, '0 X 4'); -- Sergipe x Lagarto
+VALUES (20, 1, 1, 1251, 20358, '0 X 4'); -- Sergipe x Lagarto
 
 -- Rodada 8
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (22, 1, 1, NULL, NULL, '0 X 0'); -- Confiança x Itabaiana
+VALUES (22, 1, 1, 3650, 77393, '0 X 0'); -- Confiança x Itabaiana
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (21, 1, 1, NULL, NULL, '4 X 0'); -- Sergipe x Guarany
+VALUES (21, 1, 1, 713, 10537, '4 X 0'); -- Sergipe x Guarany
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (21, 2, 1, NULL, NULL, '1 X 1'); -- Carmópolis x Lagarto
+VALUES (21, 2, 1, 57, 1520, '1 X 1'); -- Carmópolis x Lagarto
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (21, 3, 1, NULL, NULL, '0 X 2'); -- Barra x Dorense
+VALUES (21, 3, 1, 29, 550, '0 X 2'); -- Barra x Dorense
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (23, 1, 1, NULL, NULL, '0 X 1'); -- Falcon x América
+VALUES (23, 1, 1, 137, 300, '0 X 1'); -- Falcon x América
 
 -- Rodada 9
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (24, 4, 1, NULL, NULL, '4 X 2'); -- Itabaiana x Barra
+VALUES (24, 4, 1, 1020, 18000, '4 X 2'); -- Itabaiana x Barra
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (24, 2, 1, NULL, NULL, '2 X 1'); -- Dorense x Confiança
+VALUES (24, 2, 1, 683, 8570, '2 X 1'); -- Dorense x Confiança
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (24, 3, 1, NULL, NULL, '3 X 0'); -- Lagarto x Falcon
+VALUES (24, 3, 1, 1145, 17030, '3 X 0'); -- Lagarto x Falcon
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (24, 1, 1, NULL, NULL, '0 X 1'); -- Sergipe x América
+VALUES (24, 1, 1, 563, 8823, '0 X 1'); -- Sergipe x América
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
-VALUES (24, 6, 1, NULL, NULL, '2 X 1'); -- Guarany x Carmópolis
+VALUES (24, 6, 1, 596, 9570, '2 X 1'); -- Guarany x Carmópolis
 
 
--- Now populate the bridge table PontePartidaTime
--- For rodada 1
--- Sergipe x Barra (1x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (1, 1, NULL, NULL, NULL, NULL), (2, 1, NULL, NULL, NULL, NULL);
-
--- Dorense x Falcon (0x2)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (3, 2, NULL, NULL, NULL, NULL), (4, 2, NULL, NULL, NULL, NULL);
-
--- Lagarto x América (2x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (5, 3, NULL, NULL, NULL, NULL), (6, 3, NULL, NULL, NULL, NULL);
-
--- Confiança x Guarany (5x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (7, 4, NULL, NULL, NULL, NULL), (8, 4, NULL, NULL, NULL, NULL);
-
--- Itabaiana x Carmópolis (2x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (9, 5, NULL, NULL, NULL, NULL), (10, 5, NULL, NULL, NULL, NULL);
-
--- For rodada 2
--- América x Dorense (1x0)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (6, 6, NULL, NULL, NULL, NULL), (3, 6, NULL, NULL, NULL, NULL);
-
--- Barra x Lagarto (0x5)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (2, 7, NULL, NULL, NULL, NULL), (5, 7, NULL, NULL, NULL, NULL);
-
--- Carmópolis x Sergipe (1x2)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (10, 8, NULL, NULL, NULL, NULL), (1, 8, NULL, NULL, NULL, NULL);
-
--- Guarany x Itabaiana (1x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (8, 9, NULL, NULL, NULL, NULL), (9, 9, NULL, NULL, NULL, NULL);
-
--- Falcon x Confiança (1x3)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (4, 10, NULL, NULL, NULL, NULL), (7, 10, NULL, NULL, NULL, NULL);
-
--- For rodada 3
--- América x Confiança (1x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (6, 11, NULL, NULL, NULL, NULL), (7, 11, NULL, NULL, NULL, NULL);
-
--- Falcon x Barra (4x0)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (4, 12, NULL, NULL, NULL, NULL), (2, 12, NULL, NULL, NULL, NULL);
-
--- Dorense x Carmópolis (0x0)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (3, 13, NULL, NULL, NULL, NULL), (10, 13, NULL, NULL, NULL, NULL);
-
--- Lagarto x Guarany (4x0)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (5, 14, NULL, NULL, NULL, NULL), (8, 14, NULL, NULL, NULL, NULL);
-
--- Itabaiana x Sergipe (1x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (9, 15, NULL, NULL, NULL, NULL), (1, 15, NULL, NULL, NULL, NULL);
-
--- For rodada 4
--- Carmópolis x Confiança (1x2)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (10, 16, NULL, NULL, NULL, NULL), (7, 16, NULL, NULL, NULL, NULL);
-
--- Guarany x Barra (1x0)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (8, 17, NULL, NULL, NULL, NULL), (2, 17, NULL, NULL, NULL, NULL);
-
--- América x Itabaiana (1x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (6, 18, NULL, NULL, NULL, NULL), (9, 18, NULL, NULL, NULL, NULL);
-
--- Sergipe x Falcon (0x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (1, 19, NULL, NULL, NULL, NULL), (4, 19, NULL, NULL, NULL, NULL);
-
--- Lagarto x Dorense (1x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (5, 20, NULL, NULL, NULL, NULL), (3, 20, NULL, NULL, NULL, NULL);
-
--- For rodada 5
--- Confiança x Lagarto (4x0)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (7, 21, NULL, NULL, NULL, NULL), (5, 21, NULL, NULL, NULL, NULL);
-
--- Dorense x Sergipe (0x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (3, 22, NULL, NULL, NULL, NULL), (1, 22, NULL, NULL, NULL, NULL);
-
--- América x Guarany (3x0)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (6, 23, NULL, NULL, NULL, NULL), (8, 23, NULL, NULL, NULL, NULL);
-
--- Itabaiana x Falcon (4x0)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (9, 24, NULL, NULL, NULL, NULL), (4, 24, NULL, NULL, NULL, NULL);
-
--- Barra x Carmópolis (3x2)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (2, 25, NULL, NULL, NULL, NULL), (10, 25, NULL, NULL, NULL, NULL);
-
--- For rodada 6
--- Confiança x Sergipe (2x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (7, 26, NULL, NULL, NULL, NULL), (1, 26, NULL, NULL, NULL, NULL);
-
--- Lagarto x Itabaiana (0x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (5, 27, NULL, NULL, NULL, NULL), (9, 27, NULL, NULL, NULL, NULL);
-
--- Dorense x Guarany (1x2)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (3, 28, NULL, NULL, NULL, NULL), (8, 28, NULL, NULL, NULL, NULL);
-
--- Falcon x Carmópolis (3x2)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (4, 29, NULL, NULL, NULL, NULL), (10, 29, NULL, NULL, NULL, NULL);
-
--- Barra x América (1x0)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (2, 30, NULL, NULL, NULL, NULL), (6, 30, NULL, NULL, NULL, NULL);
-
--- For rodada 7
--- Confiança x Barra (8x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (7, 31, NULL, NULL, NULL, NULL), (2, 31, NULL, NULL, NULL, NULL);
-
--- Carmópolis x América (1x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (10, 32, NULL, NULL, NULL, NULL), (6, 32, NULL, NULL, NULL, NULL);
-
--- Guarany x Falcon (2x0)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (8, 33, NULL, NULL, NULL, NULL), (4, 33, NULL, NULL, NULL, NULL);
-
--- Itabaiana x Dorense (4x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (9, 34, NULL, NULL, NULL, NULL), (3, 34, NULL, NULL, NULL, NULL);
-
--- Sergipe x Lagarto (0x4)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (1, 35, NULL, NULL, NULL, NULL), (5, 35, NULL, NULL, NULL, NULL);
-
--- For rodada 8
--- Confiança x Itabaiana (0x0)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (7, 36, NULL, NULL, NULL, NULL), (9, 36, NULL, NULL, NULL, NULL);
-
--- Sergipe x Guarany (4x0)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (1, 37, NULL, NULL, NULL, NULL), (8, 37, NULL, NULL, NULL, NULL);
-
--- Carmópolis x Lagarto (1x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (10, 38, NULL, NULL, NULL, NULL), (5, 38, NULL, NULL, NULL, NULL);
-
--- Barra x Dorense (0x2)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (2, 39, NULL, NULL, NULL, NULL), (3, 39, NULL, NULL, NULL, NULL);
-
--- Falcon x América (0x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (4, 40, NULL, NULL, NULL, NULL), (6, 40, NULL, NULL, NULL, NULL);
-
--- For rodada 9
--- Itabaiana x Barra (4x2)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (9, 41, NULL, NULL, NULL, NULL), (2, 41, NULL, NULL, NULL, NULL);
-
--- Dorense x Confiança (2x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (3, 42, NULL, NULL, NULL, NULL), (7, 42, NULL, NULL, NULL, NULL);
-
--- Lagarto x Falcon (3x0)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (5, 43, NULL, NULL, NULL, NULL), (4, 43, NULL, NULL, NULL, NULL);
-
--- Sergipe x América (0x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (1, 44, NULL, NULL, NULL, NULL), (6, 44, NULL, NULL, NULL, NULL);
-
--- Guarany x Carmópolis (2x1)
-INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (8, 45, NULL, NULL, NULL, NULL), (10, 45, NULL, NULL, NULL, NULL);
 
 -- Rodada 1
 -- Sergipe x Barra (1x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (1, NULL, 1, NULL, NULL), (1, NULL, 2, NULL, NULL);
+VALUES (1, 1, 1, 86, 2), (1, 6, 2, 30, 1);
 
 -- Dorense x Falcon (0x2)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (2, NULL, 4, NULL, NULL), (2, NULL, 4, NULL, NULL);
+VALUES (2, 16, 4, 54, 2), (2, 15, 4, 48, 1);
 
 -- Lagarto x América (2x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (3, NULL, 5, NULL, NULL), (3, NULL, 5, NULL, NULL), (3, NULL, 6, NULL, NULL);
+VALUES (3, 22, 5, 49, 1), (3, 27, 6, 76, 2), (3, 23, 6, 62, 2);
 
 -- Confiança x Guarany (5x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (4, NULL, 7, NULL, NULL), (4, NULL, 7, NULL, NULL), (4, NULL, 7, NULL, NULL),
-       (4, NULL, 7, NULL, NULL), (4, NULL, 7, NULL, NULL), (4, NULL, 8, NULL, NULL);
+VALUES (4, 32, 7, 14, 1), (4, 33, 7, 22, 1), (4, 34, 7, 63, 1),
+       (4, 35, 7, 85, 2), (4, 36, 7, 91, 2), (4, 42, 8, 1, 1);
 
 -- Itabaiana x Carmópolis (2x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (5, NULL, 9, NULL, NULL), (5, NULL, 9, NULL, NULL), (5, NULL, 10, NULL, NULL);
+VALUES (5, 49, 9, 5, 1), (5, 50, 9, 30, 1), (5, 57, 10, 44, 1);
 
 -- Rodada 2
 -- América x Dorense (1x0)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (6, NULL, 6, NULL, NULL);
+VALUES (6, 27, 6, 69, 2);
 
 -- Barra x Lagarto (0x5)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
@@ -426,7 +229,7 @@ VALUES (7, NULL, 5, NULL, NULL), (7, NULL, 5, NULL, NULL), (7, NULL, 5, NULL, NU
 
 -- Carmópolis x Sergipe (1x2)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (8, NULL, 10, NULL, NULL), (8, NULL, 1, NULL, NULL), (8, NULL, 1, NULL, NULL);
+VALUES (8, 58, 10, 45, 1), (8, 3, 1, 34, 1), (8, 3, 1, 44, 1);
 
 -- Guarany x Itabaiana (1x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)

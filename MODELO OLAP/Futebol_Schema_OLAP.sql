@@ -59,7 +59,7 @@ CREATE TABLE DimJuiz (
 -- Fact Tables
 -- Fact Match Table
 CREATE TABLE fatopartida (
-    PartidaID INT NOT NULL,
+    PartidaID INT NOT NULL IDENTITY(1,1),
     DataID INT NOT NULL,
     EstadioID INT NOT NULL,
     JuizID INT NOT NULL,
