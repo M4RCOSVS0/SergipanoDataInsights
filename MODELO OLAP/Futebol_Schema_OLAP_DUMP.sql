@@ -381,39 +381,53 @@ VALUES (35, 40, 7, 89, 2), (35, 35, 7, 86, 2), (35, 40, 7, 73, 2),
 
 -- Sergipe x Guarany (4x0)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (37, NULL, 1, NULL, NULL), (37, NULL, 1, NULL, NULL), (37, NULL, 1, NULL, NULL),
-       (37, NULL, 1, NULL, NULL);
+VALUES (37, 64, 1, 1, 1),    -- Pedro Silva scored at 1'
+       (37, 3, 1, 33, 1),    -- Léo Fernandes (yellow card at 33', not a goal)
+       (37, 64, 1, 56, 2),   -- Pedro Silva scored second goal at 56'
+       (37,4 , 1, 75, 2);    -- Reny Max (yellow card at 75', not a goal)
 
 -- Carmópolis x Lagarto (1x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (38, NULL, 10, NULL, NULL), (38, NULL, 5, NULL, NULL);
+VALUES (38, 63, 10, 70, 2),  -- Felipinho (likely Felipe, ID 61) scored at 70'
+       (38, 22, 5, 4, 1);    -- Ronan scored at 4'
 
 -- Barra x Dorense (0x2)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (39, NULL, 3, NULL, NULL), (39, NULL, 3, NULL, NULL);
+VALUES (39, 12, 3, 27, 1),   -- Jeferson scored at 27'
+       (39, 65, 3, 81, 2);   -- Everton scored at 81' (Note: ID 57 is José Everton in DimJogador)
 
 -- Falcon x América (0x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (40, NULL, 6, NULL, NULL);
+VALUES (40, 66, 6, 4, 1);    -- Renato scored at 4'
 
 -- Rodada 9
 -- Itabaiana x Barra (4x2)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (41, NULL, 9, NULL, NULL), (41, NULL, 9, NULL, NULL), (41, NULL, 9, NULL, NULL),
-       (41, NULL, 9, NULL, NULL), (41, NULL, 2, NULL, NULL), (41, NULL, 2, NULL, NULL);
+VALUES (41, 55, 9, 11, 1),      -- Jackson Bernardo scored at 11'
+       (41, 7, 2, 42, 1),    -- Ronaldo scored at 42'
+       (41, 7, 2, 47, 1),    -- Ronaldo scored at 45'+2
+       (41, 67, 9, 60, 2),    -- Luis Fernando scored at 60'
+       (41, 68, 9, 73, 2),    -- Carlos Coppetti scored at 73'
+       (41, 69, 9, 82, 2);    -- Kesley scored at 82'
 
 -- Dorense x Confiança (2x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (42, NULL, 3, NULL, NULL), (42, NULL, 3, NULL, NULL), (42, NULL, 7, NULL, NULL);
+VALUES (42, 13, 3, 22, 1),    -- Lucas Silva scored at 37'
+       (42, 71, 3, 37, 1),    -- Mano (yellow card at 22', not a goal)
+       (42, 40, 7, 13, 1);      -- Neto Oliveira scored at 13'
 
 -- Lagarto x Falcon (3x0)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (43, NULL, 5, NULL, NULL), (43, NULL, 5, NULL, NULL), (43, NULL, 5, NULL, NULL);
+VALUES (43, 22, 5, 2, 1),       -- Ronan scored at 2'
+       (43, 72, 5, 18, 1),    -- Rômulo scored at 18'
+       (43, 73, 5, 22, 1);    -- Naylhor scored at 22'
 
 -- Sergipe x América (0x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (44, NULL, 6, NULL, NULL);
+VALUES (44, 74, 6, 47, 1);    -- Carlos Henrique scored at 45'+2
 
 -- Guarany x Carmópolis (2x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (45, NULL, 8, NULL, NULL), (45, NULL, 8, NULL, NULL), (45, NULL, 10, NULL, NULL);
+VALUES (45, 43, 8, 35, 1),      -- João Marcos scored at 35'
+       (45, 77, 8, 51, 2),    -- Alanderson scored at 51'
+       (45, 76, 10, 41, 1);   -- Brendon Lucas scored at 41'

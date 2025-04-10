@@ -80,3 +80,35 @@ INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Nixon', NULL
 INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Vanderley', NULL, NULL, 10); -- JogadorID: 60
 INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Felipe', NULL, NULL, 10); -- JogadorID: 61
 INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Thierry', NULL, NULL, 10); -- JogadorID: 62
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Allan Santos', NULL, NULL, 10); -- JogadorID: 63
+
+-- Sergipe (TimeID = 1)
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Pedro Henrique', NULL, NULL, 1); -- JogadorID: 64
+
+-- Dorense (TimeID = 3)
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Everton Santos', NULL, NULL, 3); -- JogadorID: 65
+
+-- América de Propriá (TimeID = 6)
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Renato', NULL, NULL, 6); -- JogadorID: 66
+
+-- Itabaiana (TimeID = 9)
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Luis Fernando', NULL, NULL, 9); -- JogadorID: 67
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Coppetti ', NULL, NULL, 9); -- JogadorID: 68
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Kesley', NULL, NULL, 9); -- JogadorID: 69
+
+-- Dorense (TimeID = 3)
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Everton Santos', NULL, NULL, 3); -- JogadorID: 70
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Mano', NULL, NULL, 3); -- JogadorID: 71
+
+-- Lagarto (TimeID = 5)
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Romulo', NULL, NULL, 5); -- JogadorID: 72
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Naylhor', NULL, NULL, 5); -- JogadorID: 73
+
+-- América de Propriá (TimeID = 6)
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Henrique', NULL, NULL, 6); -- JogadorID: 74
+
+-- Guarany (TimeID = 8)
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Alanderson', NULL, NULL, 8); -- JogadorID: 75
+
+-- Carmópolis (TimeID = 10)
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Brendon', NULL, NULL, 10); -- JogadorID: 76
