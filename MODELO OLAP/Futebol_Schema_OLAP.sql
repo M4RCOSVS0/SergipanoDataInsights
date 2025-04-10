@@ -22,7 +22,9 @@ CREATE TABLE DimEstadio (
     EstadioID INT PRIMARY KEY IDENTITY(1,1),
     Nome NVARCHAR(45) NULL,
     Capacidade INT NULL,
-    Cidade NVARCHAR(45) NULL
+    Cidade NVARCHAR(45) NULL,
+    Latitude FLOAT NULL,
+    Longitude FLOAT NULL
 );
 
 -- Dim Team Table
@@ -32,11 +34,10 @@ CREATE TABLE DimClube (
     Titulos INT NOT NULL, --da competição em disputa
     Participacoes INT NOT NULL, --da competição em disputa
     Fundacao DATE NOT NULL,
-    Sede NVARCHAR(30) NOT NULL
+    Sede NVARCHAR(30) NOT NULL,
+    Escudo NVARCHAR(1000) NULL
 );
 
-ALTER TABLE dimclube
-ADD participacao INT NULL;
 
 -- Dim Player Table
 CREATE TABLE DimJogador (
@@ -100,7 +101,7 @@ CREATE TABLE fatocartao (
 
 -- Fact Classification Table
 CREATE TABLE fatoclassificacao (
-    RodadaID INT not null identity (1,1),
+    RodadaID INT not null,
     TimeID INT not null,
     Pontos INT NULL,
     Jogos INT NULL,
@@ -129,3 +130,16 @@ CREATE TABLE fatogol (
     FOREIGN KEY (TimeID) REFERENCES DimClube(TimeID),
     PRIMARY KEY(GolID)
 );
+
+SELECT
+    dj.Nome AS 'Nome do Jogador',
+    COUNT(fg.GolID) AS 'Número de Gols',
+    dc.Nome AS 'Clube'
+FROM fatogol fg
+JOIN DimJogador dj ON dj.JogadorID = fg.JogadorID
+JOIN DimClube dc ON dc.TimeID = dj.TimeID
+GROUP BY dj.Nome, dc.Nome
+ORDER BY COUNT(fg.GolID) DESC
+
+
+
