@@ -40,7 +40,7 @@ VALUES (8, 9, 46, 7, 3, 1), (9, 9, 54, 9, 6, 1);
 
 -- Falcon x Confiança (1x3)
 INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (4, 10, NULL, NULL, NULL, NULL), (7, 10, NULL, NULL, NULL, NULL);
+VALUES (4, 10, 53, 3, 6, 0), (7, 10, 47, 6, 8, 0);
 
 -- For rodada 3
 -- América x Confiança (1x1)

@@ -224,8 +224,8 @@ VALUES (6, 27, 6, 69, 2);
 
 -- Barra x Lagarto (0x5)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (7, NULL, 5, NULL, NULL), (7, NULL, 5, NULL, NULL), (7, NULL, 5, NULL, NULL),
-       (7, NULL, 5, NULL, NULL), (7, NULL, 5, NULL, NULL);
+VALUES (7, 11, 2, 15, 1), (7, 23, 5, 27, 1), (7, 24, 5, 38, 1),
+       (7, 22, 5, 40, 1), (7, 25, 5, 86, 2);
 
 -- Carmópolis x Sergipe (1x2)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
@@ -233,127 +233,148 @@ VALUES (8, 58, 10, 45, 1), (8, 3, 1, 34, 1), (8, 3, 1, 44, 1);
 
 -- Guarany x Itabaiana (1x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (9, NULL, 8, NULL, NULL), (9, NULL, 9, NULL, NULL);
+VALUES (9, 51, 8, 6, 1), (9, 43, 9, 24, 1);
 
 -- Falcon x Confiança (1x3)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (10, NULL, 4, NULL, NULL), (10, NULL, 7, NULL, NULL), (10, NULL, 7, NULL, NULL),
-       (10, NULL, 7, NULL, NULL);
+VALUES (10, 32, 7, 14, 1), (10, 17, 4, 32, 1), (10, 37, 7, 24, 1),
+       (10, 38, 7, 60, 2);
 
 -- Rodada 3
 -- América x Confiança (1x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (11, NULL, 6, NULL, NULL), (11, NULL, 7, NULL, NULL);
+VALUES (11, 29, 6, 80, 2), -- Aldair Birimbau aos 80' do 2º tempo
+       (11, 39, 7, 86, 2); -- Valdir aos 86' do 2º tempo
 
 -- Falcon x Barra (4x0)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (12, NULL, 4, NULL, NULL), (12, NULL, 4, NULL, NULL), (12, NULL, 4, NULL, NULL),
-       (12, NULL, 4, NULL, NULL);
-
--- Dorense x Carmópolis (0x0)
--- Não há gols para inserir
-
--- Lagarto x Guarany (4x0)
-INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (14, NULL, 5, NULL, NULL), (14, NULL, 5, NULL, NULL), (14, NULL, 5, NULL, NULL),
-       (14, NULL, 5, NULL, NULL);
+VALUES (12, 18, 4, 2, 1),  -- Everson aos 2' do 1º tempo
+       (12, 19, 4, 49, 2), -- Palominha aos 49' do 2º tempo
+       (12, 19, 4, 61, 2), -- Izaldo Braz aos 61' do 2º tempo (jogador não está na lista)
+       (12, 20, 4, 87, 2); -- Dandan aos 87' do 2º tempo
 
 -- Itabaiana x Sergipe (1x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (15, NULL, 9, NULL, NULL), (15, NULL, 1, NULL, NULL);
+VALUES (15, NULL, 9, 29, 1), -- Wendel Júnior aos 29' do 1º tempo (jogador não está na lista ou é Wendel ID 51)
+       (15, 4, 1, 57, 2);    -- Reny Max aos 57' do 2º tempo
+
+-- Lagarto x Guarany (4x0)
+INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
+VALUES (14, 24, 5, 37, 1),   -- Rhuan aos 37' do 1º tempo
+       (14, 22, 5, 55, 2),   -- Ronan aos 55' do 2º tempo
+       (14, 43, 8, 74, 2),   -- João Marcos aos 74' do 2º tempo (gol contra - símbolo vermelho)
+       (14, 25, 5, 79, 2);   -- Nael aos 79' do 2º tempo
 
 -- Rodada 4
--- Carmópolis x Confiança (1x2)
-INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (16, NULL, 10, NULL, NULL), (16, NULL, 7, NULL, NULL), (16, NULL, 7, NULL, NULL);
-
--- Guarany x Barra (1x0)
-INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (17, NULL, 8, NULL, NULL);
-
--- América x Itabaiana (1x1)
-INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (18, NULL, 6, NULL, NULL), (18, NULL, 9, NULL, NULL);
-
 -- Sergipe x Falcon (0x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (19, NULL, 4, NULL, NULL);
+VALUES (16, 21, 4, 31, 1); -- Lucas Lopes aos 31' do 1º tempo
+
+-- América de Propriá x Itabaiana (1x1)
+INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
+VALUES (17, 29, 6, 12, 1), -- Aldair aos 12' do 1º tempo (jogador não está na lista)
+       (17, 52, 9, 56, 2);  -- João Vitor aos 56' do 2º tempo
 
 -- Lagarto x Dorense (1x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (20, NULL, 5, NULL, NULL), (20, NULL, 3, NULL, NULL);
+VALUES (18, 26, 5, 70, 2), -- Bruno Gonçalves aos 70' do 2º tempo
+       (18, 12, 3, 64, 2); -- Jeferson aos 64' do 2º tempo
+
+-- Carmópolis x Confiança (1x2)
+INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
+VALUES (19, 59, 10, 24, 1), -- Nixon aos 24' do 1º tempo
+       (19, 40, 7, 74, 2),  -- Neto Oliveira aos 74' do 2º tempo
+       (19, 37, 7, 79, 2);  -- Fábio Silva aos 79' do 2º tempo
+
+-- Guarany x Barra (1x0)
+INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
+VALUES (20, 44, 8, 64, 2); -- Palhinha aos 64' do 2º tempo
 
 -- Rodada 5
--- Confiança x Lagarto (4x0)
+-- Itabaiana x Falcon (4x0)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (21, NULL, 7, NULL, NULL), (21, NULL, 7, NULL, NULL), (21, NULL, 7, NULL, NULL),
-       (21, NULL, 7, NULL, NULL);
+VALUES (21, 52, 9, 17, 1),    -- João Vitor aos 17' do 1º tempo
+       (21, 53, 9, 54, 2),  -- Gabriel Miranda aos 54' do 2º tempo (não está na lista)
+       (21, 54, 9, 64, 2),    -- Neném aos 64' do 2º tempo
+       (21, 51, 9, 71, 2);  -- Wendel Júnior aos 71' do 2º tempo (pode ser o Wendel ID: 51)
 
 -- Dorense x Sergipe (0x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (22, NULL, 1, NULL, NULL);
+VALUES (22, 5, 1, 93, 2);     -- Adriano Júnior aos 90'+3 do 2º tempo
 
--- América x Guarany (3x0)
+-- Confiança x Lagarto (4x0)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (23, NULL, 6, NULL, NULL), (23, NULL, 6, NULL, NULL), (23, NULL, 6, NULL, NULL);
+VALUES (23, 32, 7, 7, 1),     -- André Lima aos 7' do 1º tempo
+       (23, 33, 7, 44, 1),    -- Rodriguinho aos 44' do 1º tempo
+       (23, 34, 7, 69, 2),    -- Breyner Camilo aos 69' do 2º tempo
+       (23, 40, 7, 91, 2);    -- Neto Oliveira aos 90'+1 do 2º tempo
 
--- Itabaiana x Falcon (4x0)
+-- América de Propriá x Guarany (3x0)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (24, NULL, 9, NULL, NULL), (24, NULL, 9, NULL, NULL), (24, NULL, 9, NULL, NULL),
-       (24, NULL, 9, NULL, NULL);
+VALUES (24, 28, 6, 55, 2),    -- Michel Chuva aos 55' do 2º tempo (assumindo que Chuva = JogadorID 31)
+       (24, 29, 6, 64, 2),    -- Aldair Birimbau aos 64' do 2º tempo (cartão amarelo)
+       (24, 29, 6, 68, 2);    -- Aldair Birimbau aos 68' do 2º tempo
 
 -- Barra x Carmópolis (3x2)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (25, NULL, 2, NULL, NULL), (25, NULL, 2, NULL, NULL), (25, NULL, 2, NULL, NULL),
-       (25, NULL, 10, NULL, NULL), (25, NULL, 10, NULL, NULL);
-
+VALUES (25, 7, 2, 62, 2),  -- Rony aos 62' do 2º tempo (não está na lista)
+       (25, 8, 2, 78, 2),     -- Helber aos 78' do 2º tempo
+       (25, 7, 2, 82, 2),  -- Rony aos 82' do 2º tempo (não está na lista)
+       (25, 60, 10, 46, 2),   -- Felipe aos 46' do 2º tempo
+       (25, 61, 10, 70, 2);   -- Felipe aos 70' do 2º tempo
 -- Rodada 6
+-- Falcon x Carmópolis (3x2)
+INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
+VALUES (26, 16, 4, 10, 1),   -- Arthur Caculé aos 10' do 1º tempo
+       (26, 21, 4, 87, 2),   -- Lucas Lopes aos 87' do 2º tempo
+       (26, 21, 4, 92, 2),   -- Lucas Lopes aos 90'+2 do 2º tempo
+       (26, 62, 10, 51, 2),  -- Thierry aos 51' do 2º tempo
+       (26, 10, 10, 63, 2); -- Sorriso aos 63' do 2º tempo (não está na lista)
+
+-- Barra x América de Propriá (1x0)
+INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
+VALUES (27, 9, 2, 8, 1);     -- Andrey aos 8' do 1º tempo
+
 -- Confiança x Sergipe (2x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (26, NULL, 7, NULL, NULL), (26, NULL, 7, NULL, NULL), (26, NULL, 1, NULL, NULL);
-
--- Lagarto x Itabaiana (0x1)
-INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (27, NULL, 9, NULL, NULL);
+VALUES (28, 4, 1, 26, 1),    -- Reny Max aos 26' do 1º tempo
+       (28, 35, 7, 74, 2),   -- Ronald Camarão aos 74' do 2º tempo
+       (28, 40, 7, 81, 2);   -- Neto Oliveira aos 81' do 2º tempo
 
 -- Dorense x Guarany (1x2)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (28, NULL, 3, NULL, NULL), (28, NULL, 8, NULL, NULL), (28, NULL, 8, NULL, NULL);
+VALUES (29, 45, 3, 92, 2),   -- Jeferson aos 90'+2 do 2º tempo
+       (29, 13, 3, 70, 2), -- Lucas Silva aos 70' do 2º tempo (não está na lista - pode ser o Lucas ID: 13)
+       (29, 46, 3, 3, 1);    -- Jeferson aos 3' do 1º tempo
 
--- Falcon x Carmópolis (3x2)
+-- Lagarto x Itabaiana (0x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (29, NULL, 4, NULL, NULL), (29, NULL, 4, NULL, NULL), (29, NULL, 4, NULL, NULL),
-       (29, NULL, 10, NULL, NULL), (29, NULL, 10, NULL, NULL);
-
--- Barra x América (1x0)
-INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (30, NULL, 2, NULL, NULL);
+VALUES (30, 52, 9, 56, 2);   -- João Vitor aos 56' do 2º tempo
 
 -- Rodada 7
--- Confiança x Barra (8x1)
-INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (31, NULL, 7, NULL, NULL), (31, NULL, 7, NULL, NULL), (31, NULL, 7, NULL, NULL),
-       (31, NULL, 7, NULL, NULL), (31, NULL, 7, NULL, NULL), (31, NULL, 7, NULL, NULL),
-       (31, NULL, 7, NULL, NULL), (31, NULL, 7, NULL, NULL), (31, NULL, 2, NULL, NULL);
-
--- Carmópolis x América (1x1)
-INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (32, NULL, 10, NULL, NULL), (32, NULL, 6, NULL, NULL);
-
--- Guarany x Falcon (2x0)
-INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (33, NULL, 8, NULL, NULL), (33, NULL, 8, NULL, NULL);
-
--- Itabaiana x Dorense (4x1)
-INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (34, NULL, 9, NULL, NULL), (34, NULL, 9, NULL, NULL), (34, NULL, 9, NULL, NULL),
-       (34, NULL, 9, NULL, NULL), (34, NULL, 3, NULL, NULL);
-
 -- Sergipe x Lagarto (0x4)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (35, NULL, 5, NULL, NULL), (35, NULL, 5, NULL, NULL), (35, NULL, 5, NULL, NULL),
-       (35, NULL, 5, NULL, NULL);
+VALUES (31, 25, 5, 85, 2), (31, 25, 5, 48, 2), (31, 25, 5, 21, 1),
+       (31, 24, 5, 16, 1);
 
+-- Itabaiana-SE x Dorense (4x1)
+INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
+VALUES (32, 51, 9, 94, 2), (32, 56, 9, 88, 2), (32, 14, 3, 63, 2),
+       (32, 55, 9, 54, 2), (32, 55, 9, 46, 2);
+
+-- Guarany-SE x Falcon-SE (2x0)
+INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
+VALUES (33, 48, 8, 94, 2), (33, 47, 8, 72, 2);
+
+-- Carmópolis x América de Propriá (1x1)
+INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
+VALUES (34, 59, 10, 90, 2), (34, 31, 6, 44, 1);
+
+-- Confiança x Barra-SE (8x1)
+INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
+VALUES (35, 40, 7, 89, 2), (35, 35, 7, 86, 2), (35, 40, 7, 73, 2),
+       (35, 35, 7, 65, 2), (35, 37, 7, 61, 2), (35, 34, 7, 57, 2),
+       (35, 33, 7, 43, 1), (35, 41, 7, 25, 1), (35, 10, 2, 18, 1);
 -- Rodada 8
 -- Confiança x Itabaiana (0x0)
 -- Não há gols para inserir
