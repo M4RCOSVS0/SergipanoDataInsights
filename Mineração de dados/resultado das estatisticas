@@ -1,0 +1,43 @@
+=== Run information ===
+
+Scheme:       weka.associations.Apriori -N 10 -T 0 -C 0.7 -D 0.05 -U 1.0 -M 0.1 -S -1.0 -c -1
+Relation:     campeonato_sergipano
+Instances:    90
+Attributes:   6
+              NomeTime
+              PosseDeBola
+              Escanteios
+              ChutesAgol
+              Impedimentos
+              Gols
+=== Associator model (full training set) ===
+
+
+Apriori
+=======
+
+Minimum support: 0.25 (22 instances)
+Minimum metric <confidence>: 0.7
+Number of cycles performed: 15
+
+Generated sets of large itemsets:
+
+Size of set of large itemsets L(1): 9
+
+Size of set of large itemsets L(2): 11
+
+Size of set of large itemsets L(3): 4
+
+Best rules found:
+
+ 1. ChutesAgol=medios 30 ==> PosseDeBola=media 25    <conf:(0.83)> lift:(1.07) lev:(0.02) [1] conv:(1.11)
+ 2. ChutesAgol=poucos Gols=0 29 ==> PosseDeBola=media 24    <conf:(0.83)> lift:(1.06) lev:(0.02) [1] conv:(1.07)
+ 3. Gols=0 48 ==> PosseDeBola=media 39    <conf:(0.81)> lift:(1.04) lev:(0.02) [1] conv:(1.07)
+ 4. Escanteios=poucos Gols=0 31 ==> PosseDeBola=media 25    <conf:(0.81)> lift:(1.04) lev:(0.01) [0] conv:(0.98)
+ 5. Impedimentos=alguns 46 ==> PosseDeBola=media 36    <conf:(0.78)> lift:(1.01) lev:(0) [0] conv:(0.93)
+ 6. ChutesAgol=poucos 50 ==> PosseDeBola=media 39    <conf:(0.78)> lift:(1) lev:(0) [0] conv:(0.93)
+ 7. Escanteios=poucos 56 ==> PosseDeBola=media 43    <conf:(0.77)> lift:(0.99) lev:(-0.01) [0] conv:(0.89)
+ 8. ChutesAgol=poucos Gols=0 29 ==> Escanteios=poucos 22    <conf:(0.76)> lift:(1.22) lev:(0.04) [3] conv:(1.37)
+ 9. Escanteios=poucos ChutesAgol=poucos 35 ==> PosseDeBola=media 26    <conf:(0.74)> lift:(0.96) lev:(-0.01) [-1] conv:(0.78)
+10. Escanteios=poucos Gols=0 31 ==> ChutesAgol=poucos 22    <conf:(0.71)> lift:(1.28) lev:(0.05) [4] conv:(1.38)
+

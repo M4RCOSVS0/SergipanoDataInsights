@@ -1,0 +1,79 @@
+Vou explicar os resultados do algoritmo Apriori que você obteve. Esta análise encontrou padrões (regras de associação) nos dados do campeonato sergipano:
+Informações Gerais
+
+Foram analisadas 90 instâncias (partidas)
+O suporte mínimo usado foi 0.25 (22 instâncias)
+A confiança mínima foi 0.7 (70%)
+
+Explicação das Regras Encontradas
+
+ChutesAgol=medios → PosseDeBola=media (conf:0.83)
+
+Em 83% das vezes que um time tem quantidade média de chutes a gol, ele também tem posse de bola média.
+Esta regra aparece em 30 partidas (chutes médios) e é válida em 25 delas.
+
+
+ChutesAgol=poucos Gols=0 → PosseDeBola=media (conf:0.83)
+
+Quando um time tem poucos chutes a gol E não marca gols, em 83% dos casos tem posse de bola média.
+Sugere que times com poucos chutes e nenhum gol geralmente mantêm posse de bola intermediária.
+
+
+Gols=0 → PosseDeBola=media (conf:0.81)
+
+Times que não marcam gols têm posse de bola média em 81% das vezes.
+Ocorre em 48 partidas (sem gols) e é válida em 39 delas.
+Isto sugere que apenas ter posse de bola média não garante gols.
+
+
+Escanteios=poucos Gols=0 → PosseDeBola=media (conf:0.81)
+
+Times com poucos escanteios e nenhum gol têm posse de bola média em 81% das vezes.
+
+
+Impedimentos=alguns → PosseDeBola=media (conf:0.78)
+
+Times com alguns impedimentos tendem a ter posse de bola média em 78% das vezes.
+
+
+ChutesAgol=poucos → PosseDeBola=media (conf:0.78)
+
+Times com poucos chutes a gol têm posse de bola média em 78% dos casos.
+
+
+Escanteios=poucos → PosseDeBola=media (conf:0.77)
+
+Times com poucos escanteios têm posse de bola média em 77% dos casos.
+
+
+ChutesAgol=poucos Gols=0 → Escanteios=poucos (conf:0.76)
+
+Times com poucos chutes e nenhum gol têm poucos escanteios em 76% dos casos.
+Esta regra tem um lift de 1.22, indicando uma associação positiva acima do esperado.
+
+
+Escanteios=poucos ChutesAgol=poucos → PosseDeBola=media (conf:0.74)
+
+Times com poucos escanteios e poucos chutes têm posse de bola média em 74% dos casos.
+
+
+Escanteios=poucos Gols=0 → ChutesAgol=poucos (conf:0.71)
+
+Times com poucos escanteios e nenhum gol têm poucos chutes a gol em 71% dos casos.
+Lift de 1.28 mostra uma associação positiva significativa.
+
+
+
+O que isso significa?
+
+Padrão dominante: A maioria das regras envolve "PosseDeBola=media", sugerindo que este é o padrão predominante nas partidas.
+Ineficiência ofensiva: Várias regras conectam "Gols=0" com outras variáveis, mostrando que:
+
+Times que não marcam gols geralmente têm posse de bola média
+Times com poucos escanteios e poucos chutes frequentemente não marcam
+
+
+Relação entre chutes e gols: Times que chutam pouco tendem a não marcar gols (regra 8 e 10)
+Posse de bola: Apenas ter posse de bola média não parece ser decisivo para marcar gols
+
+Esses resultados podem ajudar técnicos e analistas a entenderem melhor os fatores associados ao desempenho ofensivo dos times no campeonato sergipano, mostrando que simplesmente manter a posse de bola não garante resultados se não for acompanhada de finalizações efetivas.
