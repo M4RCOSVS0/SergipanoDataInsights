@@ -4,7 +4,6 @@ CREATE DATABASE futebol_OLAP_db;
 GO
 USE futebol_OLAP_db;
 GO
-
 -- Dimension Tables
 -- Dim Data Table
 CREATE TABLE DimData (
@@ -48,6 +47,13 @@ CREATE TABLE DimJogador (
     TimeID INT NULL,
     FOREIGN KEY (TimeID) REFERENCES DimClube(TimeID)
 );
+
+CREATE TABLE AggArtilharia(
+    JogadorID INT not null ,
+    Gols INT,
+    FOREIGN KEY (JogadorID) REFERENCES DimJogador(JogadorID),
+    primary key(jogadorID)
+)
 
 -- Dim Referee Table
 CREATE TABLE DimJuiz (
@@ -130,6 +136,36 @@ CREATE TABLE fatogol (
     FOREIGN KEY (TimeID) REFERENCES DimClube(TimeID),
     PRIMARY KEY(GolID)
 );
+
+
+CREATE OR ALTER TRIGGER trg_UpdateArtilharia
+ON fatogol
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Primeiro tratamos inserções para jogadores que JÁ existem na tabela AggArtilharia
+    -- Agrupamos por JogadorID para lidar com múltiplos gols do mesmo jogador em um único INSERT
+    UPDATE a
+    SET a.Gols = a.Gols + i.NovosTotais
+    FROM AggArtilharia a
+    INNER JOIN (
+        SELECT JogadorID, COUNT(*) AS NovosTotais
+        FROM inserted
+        WHERE ISNULL(GOLCONTRA, 0) = 0
+        GROUP BY JogadorID
+    ) i ON a.JogadorID = i.JogadorID;
+
+    -- Depois inserimos registros para jogadores que ainda NÃO existem na tabela AggArtilharia
+    INSERT INTO AggArtilharia (JogadorID, Gols)
+    SELECT i.JogadorID, COUNT(*) AS Gols
+    FROM inserted i
+    LEFT JOIN AggArtilharia a ON i.JogadorID = a.JogadorID
+    WHERE a.JogadorID IS NULL -- Apenas jogadores que não existem na tabela AggArtilharia
+    AND ISNULL(i.GOLCONTRA, 0) = 0 -- Não conta gols contra
+    GROUP BY i.JogadorID; -- Agrupa para contar múltiplos gols do mesmo jogador
+END;
 
 SELECT
     dj.Nome AS 'Nome do Jogador',
