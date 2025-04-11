@@ -778,3 +778,259 @@ VALUES (1, 9, 3, 1, 1, 0, 0, 2, 1); -- Itabaiana (2x1 vs Carmópolis)
 
 INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
 VALUES (1, 10, 0, 1, 0, 0, 1, 1, 2); -- Carmópolis (1x2 vs Itabaiana)
+
+-- RODADA 2
+-- Update standings after Round 2
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (2, 1, 4, 2, 1, 1, 0, 3, 2); -- Sergipe (R1: 1x1 vs Barra, R2: 2x1 vs Carmópolis)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (2, 2, 1, 2, 0, 1, 1, 1, 6); -- Barra (R1: 1x1 vs Sergipe, R2: 0x5 vs Lagarto)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (2, 3, 0, 2, 0, 0, 2, 0, 3); -- Dorense (R1: 0x2 vs Falcon, R2: 0x1 vs América)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (2, 4, 6, 2, 2, 0, 0, 3, 1); -- Falcon (R1: 2x0 vs Dorense, R2: 1x3 vs Confiança)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (2, 5, 6, 2, 2, 0, 0, 7, 1); -- Lagarto (R1: 2x1 vs América, R2: 5x0 vs Barra)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (2, 6, 3, 2, 1, 0, 1, 2, 2); -- América (R1: 1x2 vs Lagarto, R2: 1x0 vs Dorense)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (2, 7, 6, 2, 2, 0, 0, 8, 2); -- Confiança (R1: 5x1 vs Guarany, R2: 3x1 vs Falcon)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (2, 8, 1, 2, 0, 1, 1, 2, 6); -- Guarany (R1: 1x5 vs Confiança, R2: 1x1 vs Itabaiana)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (2, 9, 4, 2, 1, 1, 0, 3, 2); -- Itabaiana (R1: 2x1 vs Carmópolis, R2: 1x1 vs Guarany)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (2, 10, 0, 2, 0, 0, 2, 2, 4); -- Carmópolis (R1: 1x2 vs Itabaiana, R2: 1x2 vs Sergipe)
+
+-- RODADA 3
+-- Update standings after Round 3
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (3, 1, 5, 3, 1, 2, 0, 4, 3); -- Sergipe (+ 1x1 vs Itabaiana)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (3, 2, 1, 3, 0, 1, 2, 1, 10); -- Barra (+ 0x4 vs Falcon)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (3, 3, 1, 3, 0, 1, 2, 0, 3); -- Dorense (+ 0x0 vs Carmópolis)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (3, 4, 9, 3, 3, 0, 0, 7, 1); -- Falcon (+ 4x0 vs Barra)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (3, 5, 9, 3, 3, 0, 0, 11, 1); -- Lagarto (+ 4x0 vs Guarany)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (3, 6, 4, 3, 1, 1, 1, 3, 3); -- América (+ 1x1 vs Confiança)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (3, 7, 7, 3, 2, 1, 0, 9, 3); -- Confiança (+ 1x1 vs América)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (3, 8, 1, 3, 0, 1, 2, 2, 10); -- Guarany (+ 0x4 vs Lagarto)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (3, 9, 5, 3, 1, 2, 0, 4, 3); -- Itabaiana (+ 1x1 vs Sergipe)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (3, 10, 1, 3, 0, 1, 2, 2, 4); -- Carmópolis (+ 0x0 vs Dorense)
+
+-- RODADA 4
+-- Update standings after Round 4
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (4, 1, 5, 4, 1, 2, 1, 4, 4); -- Sergipe (+ 0x1 vs Falcon)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (4, 2, 1, 4, 0, 1, 3, 1, 11); -- Barra (+ 0x1 vs Guarany)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (4, 3, 2, 4, 0, 2, 2, 1, 4); -- Dorense (+ 1x1 vs Lagarto)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (4, 4, 12, 4, 4, 0, 0, 8, 1); -- Falcon (+ 1x0 vs Sergipe)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (4, 5, 10, 4, 3, 1, 0, 12, 2); -- Lagarto (+ 1x1 vs Dorense)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (4, 6, 5, 4, 1, 2, 1, 4, 4); -- América (+ 1x1 vs Itabaiana)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (4, 7, 10, 4, 3, 1, 0, 11, 4); -- Confiança (+ 2x1 vs Carmópolis)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (4, 8, 4, 4, 1, 1, 2, 3, 10); -- Guarany (+ 1x0 vs Barra)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (4, 9, 6, 4, 1, 3, 0, 5, 4); -- Itabaiana (+ 1x1 vs América)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (4, 10, 1, 4, 0, 1, 3, 3, 6); -- Carmópolis (+ 1x2 vs Confiança)
+
+-- RODADA 5
+-- Update standings after Round 5
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (5, 1, 8, 5, 2, 2, 1, 5, 4); -- Sergipe (+ 1x0 vs Dorense)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (5, 2, 4, 5, 1, 1, 3, 4, 13); -- Barra (+ 3x2 vs Carmópolis)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (5, 3, 2, 5, 0, 2, 3, 1, 5); -- Dorense (+ 0x1 vs Sergipe)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (5, 4, 12, 5, 4, 0, 1, 8, 5); -- Falcon (+ 0x4 vs Itabaiana)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (5, 5, 10, 5, 3, 1, 1, 12, 6); -- Lagarto (+ 0x4 vs Confiança)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (5, 6, 8, 5, 2, 2, 1, 7, 4); -- América (+ 3x0 vs Guarany)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (5, 7, 13, 5, 4, 1, 0, 15, 4); -- Confiança (+ 4x0 vs Lagarto)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (5, 8, 4, 5, 1, 1, 3, 3, 13); -- Guarany (+ 0x3 vs América)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (5, 9, 9, 5, 2, 3, 0, 9, 4); -- Itabaiana (+ 4x0 vs Falcon)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (5, 10, 1, 5, 0, 1, 4, 5, 9); -- Carmópolis (+ 2x3 vs Barra)
+
+-- RODADA 6
+-- Update standings after Round 6
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (6, 1, 8, 6, 2, 2, 2, 6, 6); -- Sergipe (+ 1x2 vs Confiança)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (6, 2, 7, 6, 2, 1, 3, 5, 13); -- Barra (+ 1x0 vs América)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (6, 3, 3, 6, 0, 3, 3, 2, 7); -- Dorense (+ 1x2 vs Guarany)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (6, 4, 15, 6, 5, 0, 1, 11, 7); -- Falcon (+ 3x2 vs Carmópolis)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (6, 5, 10, 6, 3, 1, 2, 12, 7); -- Lagarto (+ 0x1 vs Itabaiana)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (6, 6, 8, 6, 2, 2, 2, 7, 5); -- América (+ 0x1 vs Barra)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (6, 7, 16, 6, 5, 1, 0, 17, 5); -- Confiança (+ 2x1 vs Sergipe)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (6, 8, 7, 6, 2, 1, 3, 5, 14); -- Guarany (+ 2x1 vs Dorense)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (6, 9, 12, 6, 3, 3, 0, 10, 4); -- Itabaiana (+ 1x0 vs Lagarto)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (6, 10, 1, 6, 0, 1, 5, 7, 12); -- Carmópolis (+ 2x3 vs Falcon)
+
+-- RODADA 7
+-- Update standings after Round 7
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (7, 1, 8, 7, 2, 2, 3, 6, 10); -- Sergipe (+ 0x4 vs Lagarto)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (7, 2, 7, 7, 2, 1, 4, 6, 21); -- Barra (+ 1x8 vs Confiança)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (7, 3, 3, 7, 0, 3, 4, 3, 11); -- Dorense (+ 1x4 vs Itabaiana)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (7, 4, 15, 7, 5, 0, 2, 11, 9); -- Falcon (+ 0x2 vs Guarany)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (7, 5, 13, 7, 4, 1, 2, 16, 7); -- Lagarto (+ 4x0 vs Sergipe)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (7, 6, 9, 7, 2, 3, 2, 8, 6); -- América (+ 1x1 vs Carmópolis)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (7, 7, 19, 7, 6, 1, 0, 25, 6); -- Confiança (+ 8x1 vs Barra)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (7, 8, 10, 7, 3, 1, 3, 7, 14); -- Guarany (+ 2x0 vs Falcon)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (7, 9, 15, 7, 4, 3, 0, 14, 5); -- Itabaiana (+ 4x1 vs Dorense)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (7, 10, 2, 7, 0, 2, 5, 8, 13); -- Carmópolis (+ 1x1 vs América)
+
+-- RODADA 8
+-- Update standings after Round 8
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (8, 1, 11, 8, 3, 2, 3, 10, 10); -- Sergipe (+ 4x0 vs Guarany)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (8, 2, 7, 8, 2, 1, 5, 6, 23); -- Barra (+ 0x2 vs Dorense)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (8, 3, 6, 8, 1, 3, 4, 5, 11); -- Dorense (+ 2x0 vs Barra)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (8, 4, 15, 8, 5, 0, 3, 11, 10); -- Falcon (+ 0x1 vs América)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (8, 5, 14, 8, 4, 2, 2, 17, 8); -- Lagarto (+ 1x1 vs Carmópolis)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (8, 6, 12, 8, 3, 3, 2, 9, 6); -- América (+ 1x0 vs Falcon)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (8, 7, 20, 8, 6, 2, 0, 25, 6); -- Confiança (+ 0x0 vs Itabaiana)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (8, 8, 10, 8, 3, 1, 4, 7, 18); -- Guarany (+ 0x4 vs Sergipe)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (8, 9, 16, 8, 4, 4, 0, 14, 5); -- Itabaiana (+ 0x0 vs Confiança)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (8, 10, 3, 8, 0, 3, 5, 9, 14); -- Carmópolis (+ 1x1 vs Lagarto)
+
+-- RODADA 9
+-- Update standings after Round 9 (final standings)
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (9, 1, 11, 9, 3, 2, 4, 10, 11); -- Sergipe (+ 4x0 vs Guarany)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (9, 2, 7, 9, 2, 1, 5, 6, 23); -- Barra (+ 0x2 vs Dorense)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (9, 3, 6, 89, 1, 3, 4, 5, 11); -- Dorense (+ 2x0 vs Barra)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (9, 4, 15, 9, 5, 0, 3, 11, 10); -- Falcon (+ 0x1 vs América)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (9, 5, 14, 9, 4, 2, 2, 17, 8); -- Lagarto (+ 1x1 vs Carmópolis)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (9, 6, 12, 9, 3, 3, 2, 9, 6); -- América (+ 1x0 vs Falcon)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (9, 7, 20, 9, 6, 2, 0, 25, 6); -- Confiança (+ 0x0 vs Itabaiana)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (9, 8, 10, 9, 3, 1, 4, 7, 18); -- Guarany (+ 0x4 vs Sergipe)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (9, 9, 16, 9, 4, 4, 0, 14, 5); -- Itabaiana (+ 0x0 vs Confiança)
+
+INSERT INTO fatoclassificacao (RodadaID, TimeID, Pontos, Jogos, Vitorias, Empates, Derrotas, GolsPro, GolsContra)
+VALUES (9, 10, 3, 9, 0, 3, 5, 9, 14); -- Carmópolis (+ 1x1 vs Lagarto)
