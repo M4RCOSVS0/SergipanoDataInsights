@@ -1,0 +1,182 @@
+First 5 rows:
+  NomeTime PosseDeBola Escanteios ChutesAgol Impedimentos Gols Resultado
+0  Sergipe        alta     muitos     medios       alguns    1    empate
+1    Barra       baixa     poucos     poucos       nenhum    1    empate
+2  Dorense       media     medios     poucos       alguns    0   derrota
+3   Falcon       media     medios     poucos       alguns    2   vitoria
+4  Lagarto       media     poucos     poucos       nenhum    1   derrota
+
+Summary statistics:
+
+NomeTime value counts:
+NomeTime
+Sergipe       9
+Barra         9
+Dorense       9
+Falcon        9
+Lagarto       9
+America       9
+Confianca     9
+Guarany       9
+Itabaiana     9
+Carmopolis    9
+Name: count, dtype: int64
+NomeTime distribution percentage:
+NomeTime
+Sergipe       10.0
+Barra         10.0
+Dorense       10.0
+Falcon        10.0
+Lagarto       10.0
+America       10.0
+Confianca     10.0
+Guarany       10.0
+Itabaiana     10.0
+Carmopolis    10.0
+Name: proportion, dtype: float64
+
+PosseDeBola value counts:
+PosseDeBola
+media    52
+alta     19
+baixa    19
+Name: count, dtype: int64
+PosseDeBola distribution percentage:
+PosseDeBola
+media    57.78
+alta     21.11
+baixa    21.11
+Name: proportion, dtype: float64
+
+Escanteios value counts:
+Escanteios
+poucos    38
+medios    29
+muitos    23
+Name: count, dtype: int64
+Escanteios distribution percentage:
+Escanteios
+poucos    42.22
+medios    32.22
+muitos    25.56
+Name: proportion, dtype: float64
+
+ChutesAgol value counts:
+ChutesAgol
+poucos    40
+medios    33
+muitos    17
+Name: count, dtype: int64
+ChutesAgol distribution percentage:
+ChutesAgol
+poucos    44.44
+medios    36.67
+muitos    18.89
+Name: proportion, dtype: float64
+
+Impedimentos value counts:
+Impedimentos
+alguns    46
+nenhum    23
+muitos    21
+Name: count, dtype: int64
+Impedimentos distribution percentage:
+Impedimentos
+alguns    51.11
+nenhum    25.56
+muitos    23.33
+Name: proportion, dtype: float64
+
+Gols value counts:
+Gols
+0            48
+1            23
+2            10
+3_ou_mais     9
+Name: count, dtype: int64
+Gols distribution percentage:
+Gols
+0            53.33
+1            25.56
+2            11.11
+3_ou_mais    10.00
+Name: proportion, dtype: float64
+
+Resultado value counts:
+Resultado
+empate     48
+derrota    21
+vitoria    21
+Name: count, dtype: int64
+Resultado distribution percentage:
+Resultado
+empate     53.33
+derrota    23.33
+vitoria    23.33
+Name: proportion, dtype: float64
+
+Relationship between features and target (Resultado):
+
+Contingency table for NomeTime vs Resultado:
+Resultado   derrota  empate  vitoria
+NomeTime                            
+America        0.00   55.56    44.44
+Barra         44.44   44.44    11.11
+Carmopolis    44.44   55.56     0.00
+Confianca     11.11   66.67    22.22
+Dorense       33.33   44.44    22.22
+Falcon        44.44   33.33    22.22
+Guarany       33.33   44.44    22.22
+Itabaiana      0.00   77.78    22.22
+Lagarto       11.11   55.56    33.33
+Sergipe       11.11   55.56    33.33
+
+Contingency table for PosseDeBola vs Resultado:
+Resultado    derrota  empate  vitoria
+PosseDeBola                          
+alta           15.79   57.89    26.32
+baixa          26.32   57.89    15.79
+media          25.00   50.00    25.00
+
+Contingency table for Escanteios vs Resultado:
+Resultado   derrota  empate  vitoria
+Escanteios                          
+medios        20.69   44.83    34.48
+muitos         8.70   69.57    21.74
+poucos        34.21   50.00    15.79
+
+Contingency table for ChutesAgol vs Resultado:
+Resultado   derrota  empate  vitoria
+ChutesAgol                          
+medios        24.24   51.52    24.24
+muitos         0.00   64.71    35.29
+poucos        32.50   50.00    17.50
+
+Contingency table for Impedimentos vs Resultado:
+Resultado     derrota  empate  vitoria
+Impedimentos                          
+alguns          21.74   45.65    32.61
+muitos          23.81   71.43     4.76
+nenhum          26.09   52.17    21.74
+
+Contingency table for Gols vs Resultado:
+Resultado  derrota  empate  vitoria
+Gols                               
+0            20.83   79.17     0.00
+1            39.13   43.48    17.39
+2            20.00    0.00    80.00
+3_ou_mais     0.00    0.00   100.00
+
+Team Performance:
+Resultado   derrota  empate  vitoria  Total  Win_Rate
+NomeTime                                             
+America           0       5        4      9     44.44
+Lagarto           1       5        3      9     33.33
+Sergipe           1       5        3      9     33.33
+Confianca         1       6        2      9     22.22
+Dorense           3       4        2      9     22.22
+Falcon            4       3        2      9     22.22
+Guarany           3       4        2      9     22.22
+Itabaiana         0       7        2      9     22.22
+Barra             4       4        1      9     11.11
+Carmopolis        4       5        0      9      0.00

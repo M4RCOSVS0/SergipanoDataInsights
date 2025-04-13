@@ -1,0 +1,72 @@
+=== Match Prediction Oracle (Demo Mode) ===
+
+Prediction Results:
+--------------------------------------------------------------------------------
+Team         Possession   Corners    Shots      Offsides   Goals      Prediction
+--------------------------------------------------------------------------------
+Confianca    alta         muitos     muitos     alguns     3_ou_mais  vitoria
+Sergipe      media        medios     poucos     alguns     0          derrota
+Lagarto      alta         muitos     muitos     muitos     1          empate
+Itabaiana    baixa        poucos     poucos     nenhum     0          empate
+
+Interactive Mode:
+1. Make a prediction for a custom match
+2. Exit
+Enter your choice: 1
+
+=== Match Prediction Oracle ===
+Select a team:
+1. Sergipe
+2. Barra
+3. Dorense
+4. Falcon
+5. Lagarto
+6. America
+7. Confianca
+8. Guarany
+9. Itabaiana
+10. Carmopolis
+Enter team number: 7
+
+Select ball possession level:
+1. baixa
+2. media
+3. alta
+Enter possession level: 3
+
+Select corner kicks level:
+1. poucos
+2. medios
+3. muitos
+Enter corner kicks level: 3
+
+Select shots on goal level:
+1. poucos
+2. medios
+3. muitos
+Enter shots on goal level: 3
+
+Select offside level:
+1. nenhum
+2. alguns
+3. muitos
+Enter offside level: 2
+
+Select goals scored:
+1. 0
+2. 1
+3. 2
+4. 3_ou_mais
+Enter goals scored: 2
+
+Prediction Result:
+--------------------------------------------------------------------------------
+Team: Confianca
+Ball Possession: alta
+Corner Kicks: muitos
+Shots on Goal: muitos
+Offsides: alguns
+Goals: 1
+Predicted Result: empate
+
+Process finished with exit code 0

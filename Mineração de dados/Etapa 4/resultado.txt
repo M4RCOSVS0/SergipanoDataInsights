@@ -1,0 +1,15 @@
+Random Forest Results:
+Accuracy: 0.6556 � 0.0923
+Precision: 0.6585 � 0.1508
+Recall: 0.6139 � 0.0982
+F1 Score: 0.6108 � 0.1100
+
+SVM Results:
+Accuracy: 0.6778 � 0.1160
+Precision: 0.5711 � 0.1601
+Recall: 0.6056 � 0.1235
+F1 Score: 0.5766 � 0.1369
+
+Winner: Random Forest
+
+Winner model saved as 'random_forest_model.pkl'

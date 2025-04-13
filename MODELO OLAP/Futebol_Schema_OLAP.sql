@@ -177,57 +177,21 @@ JOIN DimClube dc ON dc.TimeID = dj.TimeID
 GROUP BY dj.Nome, dc.Nome
 ORDER BY COUNT(fg.GolID) DESC
 
-WITH GolsPorTime AS (
-    -- Calcula o total de gols por time e partida
-    SELECT
-        ppt.TIMEID,
-        ppt.PARTIDAID,
-        COUNT(fg.GolID) AS GolsFeitos
-    FROM
-        PontePartidaTime ppt
-    LEFT JOIN
-        fatoGol fg ON fg.PartidaID = ppt.PARTIDAID AND fg.TimeID = ppt.TIMEID
-    GROUP BY
-        ppt.TIMEID, ppt.PARTIDAID
-),
-GolsSofridos AS (
-    -- Calcula gols sofridos por time (gols feitos pelos adversários)
-    SELECT
-        ppt.TIMEID,
-        ppt.PARTIDAID,
-        COUNT(fg.GolID) AS GolsContra
-    FROM
-        PontePartidaTime ppt
-    LEFT JOIN
-        PontePartidaTime ppt_adv ON ppt.PARTIDAID = ppt_adv.PARTIDAID AND ppt.TIMEID != ppt_adv.TIMEID
-    LEFT JOIN
-        fatoGol fg ON fg.PartidaID = ppt.PARTIDAID AND fg.TimeID = ppt_adv.TIMEID
-    GROUP BY
-        ppt.TIMEID, ppt.PARTIDAID
-)
-
+-- Base para mineração
 SELECT
     d.Nome AS NomeTime,
     ppt.PosseDeBola,
     ppt.Escanteios,
     ppt.ChutesAGol,
-    ppt.Impedimentos,
-    COALESCE(g.GolsFeitos, 0) AS Gols,
-    COALESCE(gs.GolsContra, 0) AS GolsSofridos,
-    CASE
-        WHEN COALESCE(g.GolsFeitos, 0) > COALESCE(gs.GolsContra, 0) THEN 'VITORIA'
-        WHEN COALESCE(g.GolsFeitos, 0) < COALESCE(gs.GolsContra, 0) THEN 'DERROTA'
-        ELSE 'EMPATE'
-    END AS Resultado
+    ppt.Impedimentos
 FROM
     PontePartidaTime ppt
 LEFT JOIN
     DimClube d ON d.TimeID = ppt.TimeID
-LEFT JOIN
-    GolsPorTime g ON g.TIMEID = ppt.TIMEID AND g.PARTIDAID = ppt.PARTIDAID
-LEFT JOIN
-    GolsSofridos gs ON gs.TIMEID = ppt.TIMEID AND gs.PARTIDAID = ppt.PARTIDAID
-ORDER BY
-    ppt.PARTIDAID, ppt.TIMEID
+GROUP BY
+    ppt.TIMEID, ppt.PARTIDAID, d.Nome, ppt.PosseDeBola, ppt.Escanteios, ppt.ChutesAGol, ppt.Impedimentos
+order by
+    ppt.PARTIDAID
+
 
 

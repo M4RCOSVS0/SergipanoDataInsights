@@ -1,0 +1,7 @@
+Para a tarefa de classificação, selecionei dois algoritmos baseados na literatura:
+
+Random Forest : um poderoso método de conjunto que funciona bem com dados categóricos e é robusto contra overfitting. 
+Estudos mostram que é eficaz na previsão de resultados esportivos.
+
+Máquina de Vetores de Suporte (SVM) : frequentemente usada em análises esportivas para tarefas de classificação com 
+bom desempenho em características categóricas quando codificada corretamente.
