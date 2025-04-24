@@ -1,4 +1,5 @@
-﻿using FutebolAPI.Models;
+﻿using FutebolAPI.DTOs;
+using FutebolAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,55 +18,103 @@ namespace FutebolAPI.Controllers
 
         // GET: api/Jogadores
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<DimJogador>>> GetJogadores()
+        public async Task<ActionResult<IEnumerable<JogadorDTO>>> GetJogadores()
         {
-            return await _context.DimJogadors.ToListAsync();
+            var jogadoresDTO = await _context.DimJogadors
+                .Include(j => j.Time)
+                .Include(j => j.AggArtilharium)
+                .Select(j => new JogadorDTO
+                {
+                    JogadorId = j.JogadorId,
+                    Nome = j.Nome,
+                    Posicao = j.Posicao,
+                    Nascimento = j.Nascimento,
+                    TimeId = j.TimeId,
+                    TimeNome = j.Time != null ? j.Time.Nome : null,
+                    NumeroGols = j.AggArtilharium != null ? j.AggArtilharium.Gols : null
+                })
+                .ToListAsync();
+
+            return jogadoresDTO;
         }
 
         // GET: api/Jogadores/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<DimJogador>> GetJogador(int id)
+        public async Task<ActionResult<JogadorDTO>> GetJogador(int id)
         {
-            var jogador = await _context.DimJogadors.FindAsync(id);
+            var jogadorDTO = await _context.DimJogadors
+                .Include(j => j.Time)
+                .Include(j => j.AggArtilharium)
+                .Where(j => j.JogadorId == id)
+                .Select(j => new JogadorDTO
+                {
+                    JogadorId = j.JogadorId,
+                    Nome = j.Nome,
+                    Posicao = j.Posicao,
+                    Nascimento = j.Nascimento,
+                    TimeId = j.TimeId,
+                    TimeNome = j.Time != null ? j.Time.Nome : null,
+                    NumeroGols = j.AggArtilharium != null ? j.AggArtilharium.Gols : null
+                })
+                .FirstOrDefaultAsync();
 
-            if (jogador == null)
+            if (jogadorDTO == null)
             {
                 return NotFound();
             }
 
-            return jogador;
+            return jogadorDTO;
         }
 
-        // GET: api/Jogadores/time/5
-        [HttpGet("time/{timeId}")]
-        public async Task<ActionResult<IEnumerable<DimJogador>>> GetJogadoresByTime(int timeId)
+        /// GET: api/Jogadores/ByTime/1
+        [HttpGet("ByTime/{timeId}")]
+        public async Task<ActionResult<IEnumerable<JogadorDTO>>> GetJogadoresByTime(int timeId)
         {
-            var jogadores = await _context.DimJogadors
+            var jogadoresDTO = await _context.DimJogadors
+                .Include(j => j.Time)
+                .Include(j => j.AggArtilharium)
                 .Where(j => j.TimeId == timeId)
+                .Select(j => new JogadorDTO
+                {
+                    JogadorId = j.JogadorId,
+                    Nome = j.Nome,
+                    Posicao = j.Posicao,
+                    Nascimento = j.Nascimento,
+                    TimeId = j.TimeId,
+                    TimeNome = j.Time != null ? j.Time.Nome : null,
+                    NumeroGols = j.AggArtilharium != null ? j.AggArtilharium.Gols : null
+                })
                 .ToListAsync();
 
-            if (jogadores == null || !jogadores.Any())
-            {
-                return NotFound();
-            }
-
-            return jogadores;
+            return jogadoresDTO;
         }
 
-        // GET: api/Jogadores/posicao/atacante
+        /// GET: api/Jogadores/posicao/atacante
         [HttpGet("posicao/{posicao}")]
-        public async Task<ActionResult<IEnumerable<DimJogador>>> GetJogadoresByPosicao(string posicao)
+        public async Task<ActionResult<IEnumerable<JogadorDTO>>> GetJogadoresByPosicao(string posicao)
         {
-            var jogadores = await _context.DimJogadors
-                .Where(j => j.Posicao.Contains(posicao))
+            var jogadoresDTO = await _context.DimJogadors
+                .Include(j => j.Time)
+                .Include(j => j.AggArtilharium)
+                .Where(j => j.Posicao == posicao)
+                .Select(j => new JogadorDTO
+                {
+                    JogadorId = j.JogadorId,
+                    Nome = j.Nome,
+                    Posicao = j.Posicao,
+                    Nascimento = j.Nascimento,
+                    TimeId = j.TimeId,
+                    TimeNome = j.Time != null ? j.Time.Nome : null,
+                    NumeroGols = j.AggArtilharium != null ? j.AggArtilharium.Gols : null
+                })
                 .ToListAsync();
 
-            if (jogadores == null || !jogadores.Any())
+            if (jogadoresDTO == null || !jogadoresDTO.Any())
             {
                 return NotFound();
             }
 
-            return jogadores;
+            return jogadoresDTO;
         }
 
         // GET: api/Jogadores/artilharia

@@ -2,6 +2,7 @@
 -- Create Database
 CREATE DATABASE futebol_OLAP_db;
 GO
+
 USE futebol_OLAP_db;
 GO
 -- Dimension Tables

@@ -2,3 +2,4 @@ MODELO OLAP/DIM_JOGADOR.sql
 # Ignorar pastas de build do .NET
 bin/
 obj/
+vs/
