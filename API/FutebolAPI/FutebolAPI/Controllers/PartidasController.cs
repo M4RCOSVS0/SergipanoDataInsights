@@ -1,4 +1,5 @@
-﻿using FutebolAPI.Models;
+﻿using FutebolAPI.DTOs;
+using FutebolAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,9 +18,22 @@ namespace FutebolAPI.Controllers
 
         // GET: api/Partidas
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Fatopartidum>>> GetPartidas()
+        public async Task<ActionResult<IEnumerable<PartidaDTOs>>> GetPartidas()
         {
-            return await _context.Fatopartida.ToListAsync();
+            var partidaDTO = await _context.Fatopartida
+                .Include(p => p.Estadio)
+                .Include(p => p.Juiz)
+                .Select(p => new PartidaDTOs
+                {
+                    PartidaId = p.PartidaId,                  
+                    Estadio = p.Estadio.Nome,
+                    Juiz = p.Juiz.Nome,
+                    Data = p.Data.Data,
+                    Publico = p.Publico,
+                    Renda = p.Renda,
+                    Resultado = p.Resultado
+                })
+                .ToListAsync();
         }
 
         // GET: api/Partidas/5

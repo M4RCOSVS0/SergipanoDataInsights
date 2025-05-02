@@ -1,4 +1,5 @@
-﻿using FutebolAPI.Models;
+﻿using FutebolAPI.DTOs;
+using FutebolAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,31 +18,66 @@ namespace FutebolAPI.Controllers
 
         // GET: api/Clubes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<DimClube>>> GetClubes()
+        public async Task<ActionResult<IEnumerable<ClubeDTOs>>> GetClubes()
         {
-            return await _context.DimClubes.ToListAsync();
+            var clubesDTO = await _context.DimClubes
+                .Select(c => new ClubeDTOs
+                {
+                    TimeId = c.TimeId,
+                    Nome = c.Nome,
+                    Titulos = c.Titulos,
+                    Participacoes = c.Participacoes,
+                    Fundacao = c.Fundacao,
+                    Sede = c.Sede,
+                    Escudo = c.Escudo
+                })
+                .ToListAsync();
+
+            return clubesDTO;
         }
 
         // GET: api/Clubes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<DimClube>> GetClube(int id)
+        public async Task<ActionResult<ClubeDTOs>> GetClube(int id)
         {
-            var clube = await _context.DimClubes.FindAsync(id);
+            var clubesDTO = await _context.DimClubes
+                .Where(c => c.TimeId == id)
+                .Select(c => new ClubeDTOs
+                {
+                    TimeId = c.TimeId,
+                    Nome = c.Nome,
+                    Titulos = c.Titulos,
+                    Participacoes = c.Participacoes,
+                    Fundacao = c.Fundacao,
+                    Sede = c.Sede,
+                    Escudo = c.Escudo
+                })
+                .FirstOrDefaultAsync();
 
-            if (clube == null)
+            if (clubesDTO == null)
             {
                 return NotFound();
             }
 
-            return clube;
+            return clubesDTO;
         }
 
-        // GET: api/Clubes/nome/Flamengo
+        // GET: api/Clubes/nome/Itabaiana
         [HttpGet("nome/{nome}")]
-        public async Task<ActionResult<IEnumerable<DimClube>>> GetClubesByNome(string nome)
+        public async Task<ActionResult<IEnumerable<ClubeDTOs>>> GetClubesByNome(string nome)
         {
             var clubes = await _context.DimClubes
                 .Where(c => c.Nome.Contains(nome))
+                .Select(c => new ClubeDTOs
+                {
+                    TimeId = c.TimeId,
+                    Nome = c.Nome,
+                    Titulos = c.Titulos,
+                    Participacoes = c.Participacoes,
+                    Fundacao = c.Fundacao,
+                    Sede = c.Sede,
+                    Escudo = c.Escudo
+                })
                 .ToListAsync();
 
             if (clubes == null || !clubes.Any())
@@ -54,11 +90,20 @@ namespace FutebolAPI.Controllers
 
         // GET: api/Clubes/titulos/10
         [HttpGet("titulos/{minTitulos}")]
-        public async Task<ActionResult<IEnumerable<DimClube>>> GetClubesByTitulos(int minTitulos)
+        public async Task<ActionResult<IEnumerable<ClubeDTOs>>> GetClubesByTitulos(int minTitulos)
         {
             var clubes = await _context.DimClubes
                 .Where(c => c.Titulos >= minTitulos)
-                .OrderByDescending(c => c.Titulos)
+                .Select(c => new ClubeDTOs
+                {
+                    TimeId = c.TimeId,
+                    Nome = c.Nome,
+                    Titulos = c.Titulos,
+                    Participacoes = c.Participacoes,
+                    Fundacao = c.Fundacao,
+                    Sede = c.Sede,
+                    Escudo = c.Escudo
+                })
                 .ToListAsync();
 
             if (clubes == null || !clubes.Any())

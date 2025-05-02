@@ -66,7 +66,7 @@ namespace FutebolAPI.Controllers
             return jogadorDTO;
         }
 
-        /// GET: api/Jogadores/ByTime/1
+        // GET: api/Jogadores/ByTime/1
         [HttpGet("ByTime/{timeId}")]
         public async Task<ActionResult<IEnumerable<JogadorDTO>>> GetJogadoresByTime(int timeId)
         {
@@ -89,7 +89,7 @@ namespace FutebolAPI.Controllers
             return jogadoresDTO;
         }
 
-        /// GET: api/Jogadores/posicao/atacante
+        // GET: api/Jogadores/posicao/atacante
         [HttpGet("posicao/{posicao}")]
         public async Task<ActionResult<IEnumerable<JogadorDTO>>> GetJogadoresByPosicao(string posicao)
         {
@@ -117,33 +117,55 @@ namespace FutebolAPI.Controllers
             return jogadoresDTO;
         }
 
-        // GET: api/Jogadores/artilharia
-        [HttpGet("artilharia")]
-        public async Task<ActionResult<IEnumerable<object>>> GetArtilharia()
+        // GET: api/Jogadores/nome/neymar
+        [HttpGet("nome/{nome}")]
+        public async Task<ActionResult<IEnumerable<JogadorDTO>>> GetJogadoresByNome(string nome)
         {
-            var artilheiros = await _context.AggArtilharia
-                .Join(_context.DimJogadors,
-                    art => art.JogadorId,
-                    jog => jog.JogadorId,
-                    (art, jog) => new { Jogador = jog, Gols = art.Gols })
-                .Join(_context.DimClubes,
-                    j => j.Jogador.TimeId,
-                    c => c.TimeId,
-                    (j, c) => new {
-                        JogadorId = j.Jogador.JogadorId,
-                        NomeJogador = j.Jogador.Nome,
-                        Clube = c.Nome,
-                        Gols = j.Gols
-                    })
-                .OrderByDescending(a => a.Gols)
+            var jogadoresDTO = await _context.DimJogadors
+                .Include(j => j.Time)
+                .Include(j => j.AggArtilharium)
+                .Where(j => j.Nome.Contains(nome))
+                .Select(j => new JogadorDTO
+                {
+                    JogadorId = j.JogadorId,
+                    Nome = j.Nome,
+                    Posicao = j.Posicao,
+                    Nascimento = j.Nascimento,
+                    TimeId = j.TimeId,
+                    TimeNome = j.Time != null ? j.Time.Nome : null,
+                    NumeroGols = j.AggArtilharium != null ? j.AggArtilharium.Gols : null
+                })
                 .ToListAsync();
 
-            if (artilheiros == null || !artilheiros.Any())
+            if (jogadoresDTO == null || !jogadoresDTO.Any())
             {
                 return NotFound();
             }
 
-            return artilheiros;
+            return jogadoresDTO;
+        }
+
+        // GET: api/Jogadores/artilharia
+        [HttpGet("artilharia")]
+        public async Task<ActionResult<IEnumerable<JogadorDTO>>> GetArtilharia()
+        {
+            var jogadoresDTO = await _context.DimJogadors
+                .Include(j => j.Time)
+                .Include(j => j.AggArtilharium)
+                .Select(j => new JogadorDTO
+                {
+                    JogadorId = j.JogadorId,
+                    Nome = j.Nome,
+                    Posicao = j.Posicao,
+                    Nascimento = j.Nascimento,
+                    TimeId = j.TimeId,
+                    TimeNome = j.Time != null ? j.Time.Nome : null,
+                    NumeroGols = j.AggArtilharium != null ? j.AggArtilharium.Gols : null
+                })
+                .OrderByDescending(a => a.NumeroGols)
+                .ToListAsync();
+
+            return jogadoresDTO;
         }
     }
 }

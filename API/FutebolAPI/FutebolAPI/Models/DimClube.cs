@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 
 namespace FutebolAPI.Models;
 
@@ -19,19 +18,14 @@ public partial class DimClube
     public string Sede { get; set; } = null!;
 
     public string? Escudo { get; set; }
-
-    [JsonIgnore]
+ 
     public virtual ICollection<DimJogador> DimJogadors { get; set; } = new List<DimJogador>();
-
-    [JsonIgnore]
+   
     public virtual ICollection<Fatocartao> Fatocartaos { get; set; } = new List<Fatocartao>();
 
-    [JsonIgnore]
     public virtual ICollection<Fatoclassificacao> Fatoclassificacaos { get; set; } = new List<Fatoclassificacao>();
 
-    [JsonIgnore]
     public virtual ICollection<Fatogol> Fatogols { get; set; } = new List<Fatogol>();
 
-    [JsonIgnore]
     public virtual ICollection<PontePartidaTime> PontePartidaTimes { get; set; } = new List<PontePartidaTime>();
 }
