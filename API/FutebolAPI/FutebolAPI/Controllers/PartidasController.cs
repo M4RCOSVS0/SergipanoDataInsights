@@ -20,20 +20,51 @@ namespace FutebolAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PartidaDTOs>>> GetPartidas()
         {
-            var partidaDTO = await _context.Fatopartida
+            var partidas = await _context.Fatopartida
                 .Include(p => p.Estadio)
                 .Include(p => p.Juiz)
-                .Select(p => new PartidaDTOs
-                {
-                    PartidaId = p.PartidaId,                  
-                    Estadio = p.Estadio.Nome,
-                    Juiz = p.Juiz.Nome,
-                    Data = p.Data.Data,
-                    Publico = p.Publico,
-                    Renda = p.Renda,
-                    Resultado = p.Resultado
-                })
+                .Include(p => p.PontePartidaTimes)
+                    .ThenInclude(pt => pt.Time)
                 .ToListAsync();
+
+            var partidasDTO = new List<PartidaDTOs>();
+
+            foreach (var partida in partidas)
+            {
+                var dto = new PartidaDTOs
+                {
+                    PartidaId = partida.PartidaId,
+                    Estadio = partida.Estadio?.Nome ?? "Não informado",
+                    Juiz = partida.Juiz?.Nome ?? "Não informado",
+                    Data = partida.Data?.Data,
+                    Publico = partida.Publico,
+                    Renda = partida.Renda,
+                    Resultado = partida.Resultado,
+                    Times = new List<NomeClubeDTOs>()
+                };
+
+                if (partida.PontePartidaTimes != null)
+                {
+                    var timesList = partida.PontePartidaTimes.ToList();
+                    for (int i = 0; i < timesList.Count; i++)
+                    {
+                        var ponteTime = timesList[i];
+                        if (ponteTime?.Time != null)
+                        {
+                            dto.Times.Add(new NomeClubeDTOs
+                            {
+                                Nome = ponteTime.Time.Nome ?? "Não informado",
+                                TimeId = ponteTime.Time.TimeId,
+                                CasaOuFora = i == 0 ? "Casa" : "Fora"
+                            });
+                        }
+                    }
+                }
+
+                partidasDTO.Add(dto);
+            }
+
+            return partidasDTO;
         }
 
         // GET: api/Partidas/5

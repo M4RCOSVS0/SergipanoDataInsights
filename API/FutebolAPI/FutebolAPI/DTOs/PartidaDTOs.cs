@@ -9,7 +9,7 @@
         public int? Publico { get; set; }
         public decimal? Renda { get; set; }
         public string? Resultado { get; set; }
-        public List<ClubeDTOs> Times { get; set; } = new List<ClubeDTOs>();
+        public List<NomeClubeDTOs> Times { get; set; } = new List<NomeClubeDTOs>();
         public List<GolDTOs> Gols { get; set; } = new List<GolDTOs>();
         public List<CartaoDTOs> Cartoes { get; set; } = new List<CartaoDTOs>();
     }
