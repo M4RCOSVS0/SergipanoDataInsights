@@ -3,7 +3,7 @@ USE futebol_OLAP_db;
 -- Extract unique stadiums
 INSERT INTO DimEstadio (Nome, Capacidade, Cidade, Latitude, Longitude) VALUES
 ('Arena Batistão', 15575, 'Aracaju', -10.9271, -37.0562),--1
-('Aristron Azevedo', 3000, 'N.Sra das Dores', -10.4970, -37.1962),--2
+('Aristron Azevedo', 3000, 'Nossa Senhora das Dores', -10.4970, -37.1962),--2
 ('Paulo Barreto', 8000, 'Lagarto', -10.9138, -37.6689),--3
 ('Etelvino Mendonça', 10000, 'Itabaiana', -10.6826, -37.4273),--4
 ('Durval Feitosa', 2000, 'Propriá', -10.2136, -36.8440),--5
@@ -137,6 +137,14 @@ INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Alanderson',
 -- Carmópolis (TimeID = 10)
 INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Brendon', 'ATACANTE', NULL, 10); -- JogadorID: 76
 
+-- Itabaiana (TimeID = 9)
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Leilson', 'ATACANTE', NULL, 9); -- JogadorID: 77
+
+-- América de Propriá (TimeID = 6)
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Danilo', 'MEIA', NULL, 6); -- JogadorID: 78
+
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Ueslei', 'ATACANTE', NULL, 4); -- JogadorID: 79
+
 -- Insert dates - converting from DD-MMM format to proper dates (assuming 2024 year)
 INSERT INTO DimData (Data, Ano, Mes, Dia, DiaSemana) VALUES
 ('2025-01-11', 2025, 1, 11, 'SAB'),
@@ -162,7 +170,14 @@ INSERT INTO DimData (Data, Ano, Mes, Dia, DiaSemana) VALUES
 ('2025-02-22', 2025, 2, 22, 'SAB'),
 ('2025-02-23', 2025, 2, 23, 'DOM'),
 ('2025-02-24', 2025, 2, 24, 'SEG'),
-('2025-03-01', 2025, 3, 1, 'SAB');
+('2025-03-01', 2025, 3, 1, 'SAB'),
+('2025-03-05', 2025, 3, 1, 'QUA'),
+('2025-03-08', 2025, 3, 1, 'SAB'),
+('2025-03-09', 2025, 3, 1, 'DOM'),
+('2025-03-15', 2025, 3, 1, 'SAB'),
+('2025-03-22', 2025, 3, 1, 'SAB'),
+('2025-03-29', 2025, 3, 1, 'SAB');
+
 
 -- Map matches to fact table - using variables to get the IDs from dimension tables
 -- For simplicity, using positions that correspond to the ordering above
@@ -315,6 +330,39 @@ VALUES (24, 1, 1, 563, 8823, '0 X 1'); -- Sergipe x América
 
 INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
 VALUES (24, 6, 1, 596, 9570, '2 X 1'); -- Guarany x Carmópolis
+
+
+-- Rodada 10
+INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
+VALUES (25, 3, 1, 1044, 26720, '0 X 0'); -- Lagarto x Falcon
+
+INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
+VALUES (25, 4, 1, 2972, 77025, '2 X 0'); -- Itabaiana x Sergipe
+
+INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
+VALUES (25, 5, 1, 437, 11760, '4 X 2'); -- America x Guarani
+
+-- Rodada 11
+INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
+VALUES (27, 5, 1, 882, 24330, '1 X 1'); -- America x Itabaina
+
+INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
+VALUES (26, 1, 1, 2972, 77025, '1 X 2'); -- Falcon x Confiança
+
+-- Rodada 12
+INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
+VALUES (28, 4, 1, 3697, 76109, '1 X 0'); -- Itabaina x Falcon
+
+INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
+VALUES (28, 1, 1, 3448, 42672, '3 X 0'); -- Confiança x Falcon
+
+-- Rodada 13
+INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
+VALUES (29, 4, 1, 5831, 128794, '1 X 2'); -- Itabaina x Confiança
+
+-- Rodada 14
+INSERT INTO fatopartida (DataID, EstadioID, JuizID, Publico, Renda, RESULTADO)
+VALUES (30, 1, 1, 10391, 345835, '1 X 1'); -- Confiança x Itabaiana
 
 -- Now populate the bridge table PontePartidaTime
 -- For rodada 1
@@ -509,6 +557,47 @@ VALUES (1, 44, 53, 5, 4, 3), (6, 44, 47, 5, 4, 1);
 -- Guarany x Carmópolis (2x1)
 INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
 VALUES (8, 45, 60, 3, 3, 1), (10, 45, 40, 2, 4, 1);
+
+-- For rodada 10 (playoff)
+-- Itabaiana x Sergipe (2x0)
+INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
+VALUES (9, 46, 44, 2, 2, 1), (1, 46, 56, 8, 7, 0);
+
+-- Lagarto x Falcon (0x0)
+INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
+VALUES (5, 47, 60, 8, 4, 0), (4, 47, 40, 3, 4, 2);
+
+-- America x Guarany (1x0)
+INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
+VALUES (6, 48, 42, 2, 4, 2), (8, 48, 58, 6, 1, 0);
+
+-- For rodada 11 (semi-final)
+-- América x Itabaiana (1x1)
+INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
+VALUES (6, 49, 57, 3, 3, 0), (9, 49, 43, 4, 4, 2);
+
+-- Falcon x Confiança (0x0)
+INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
+VALUES (4, 50, 50, 0, 4, 0), (7, 50, 50, 1, 4, 0);
+
+-- For rodada 12 (semi-final)
+-- Itabaiana x America (1x0)
+INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
+VALUES (9, 51, 55, 2, 4, 2), (6, 51, 45, 2, 5, 2);
+
+-- Confiança x Falcon (3x0)
+INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
+VALUES (7, 52, 48, 1, 5, 1), (4, 52, 52, 3, 4, 1);
+
+-- For rodada 13 (final)
+-- Itabaiana x America (1x2)
+INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
+VALUES (9, 53, 55, 10, 5, 2), (4, 53, 45, 7, 4, 0);
+
+-- For rodada 14 (final)
+-- Confiança x Itabaiana (1x1)
+INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
+VALUES (7, 54, 42, 3, 2, 0), (9, 52, 28, 9, 5, 2);
 
 -- Rodada 1
 -- Sergipe x Barra (1x1)
@@ -746,6 +835,28 @@ INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
 VALUES (45, 43, 8, 35, 1),      -- João Marcos scored at 35'
        (45, 75, 8, 51, 2),    -- Alanderson scored at 51'
        (45, 76, 10, 41, 1);   -- Brendon Lucas scored at 41'
+
+-- Rodada 10
+-- Itabaiana x Sergipe (2x0)
+INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
+VALUES (46, 56, 9, 25, 1),      -- Jackson Bernardo scored at 11'
+       (46, 76, 9, 34, 1);   -- Ronaldo scored at 42'
+
+-- America x Guarani (1x0)
+INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
+VALUES (48, 78, 6, 39, 1);
+
+-- Rodada 11
+-- Itabaiana x America (2x0)
+INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
+VALUES (49, 31, 9, 47, 1),      -- Jackson Bernardo scored at 11'
+       (49, 51, 6, 42, 1);   -- Ronaldo scored at 42'
+
+-- falcon x confiança (1x0)
+INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
+VALUES (50, 32, 7, 19, 1),
+       (50, 79, 4, 44, 1),
+       (50, 35, 7, 47, 2);
 
 -- RODADA 1
 -- Create initial standings for all teams after Round 1
