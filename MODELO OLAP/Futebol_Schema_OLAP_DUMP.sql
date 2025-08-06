@@ -22,7 +22,7 @@ INSERT INTO DimClube (Nome, Titulos, Fundacao, Sede, Participacoes,Escudo) VALUE
 ('Itabaiana', 11, '19380710', 'Itabaiana', 72,'https://ssl.gstatic.com/onebox/media/sports/logos/3Un7pF7XhEA-opN94PlJlQ_96x96.png'),
 ('Carmópolis', 0, '20220612', 'Carmópolis', 2,'https://upload.wikimedia.org/wikipedia/pt/7/71/EscudoCarmopolis.png');
 
-USE futebol_OLAP_db;
+
 -- Sergipe (TimeID = 1)
 INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Lucas Straub', 'DEFENSOR', NULL, 1); -- JogadorID: 1
 INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Bambam', 'ATACANTE', NULL, 1); -- JogadorID: 2
@@ -847,16 +847,41 @@ INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
 VALUES (48, 78, 6, 39, 1);
 
 -- Rodada 11
--- Itabaiana x America (2x0)
+-- America x Itabaiana (1x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-VALUES (49, 31, 9, 47, 1),      -- Jackson Bernardo scored at 11'
-       (49, 51, 6, 42, 1);   -- Ronaldo scored at 42'
+VALUES (49, 31, 6, 47, 1),      -- Jackson Bernardo scored at 11'
+       (49, 51, 9, 42, 1);   -- Ronaldo scored at 42'
 
--- falcon x confiança (1x0)
+-- falcon x confiança (2x1)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
 VALUES (50, 32, 7, 19, 1),
        (50, 79, 4, 44, 1),
        (50, 35, 7, 47, 2);
+
+-- Rodada 12
+-- Itabaiana x America (1x1)
+INSERT INTO fatogol(partidaid, jogadorid, timeid, minuto, tempo)
+values (51, 55,9,43,2);
+
+-- Confiança x falcon(3x0)
+INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
+values (52,35,7,18,1),
+       (52,0,7,29,1), --tem q criar o jogador aff
+       (52,40,7,44,2);
+
+--Rodada 13
+--Itabaiana X Confiança
+Insert Into fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
+values(53,0,7,0,1),
+      (53,0,9,0,1),
+      (53,0,7,0,2);
+
+--Rodada 14
+--Itabaiana x Confiança
+Insert Into fatogol(partidaid, jogadorid, timeid, minuto, tempo)
+values(54,0,9,0,1),
+      (54,0,9,0,2);
+
 
 -- RODADA 1
 -- Create initial standings for all teams after Round 1
