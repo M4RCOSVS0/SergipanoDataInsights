@@ -20,51 +20,38 @@ namespace FutebolAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PartidaDTOs>>> GetPartidas()
         {
-            var partidas = await _context.Fatopartida
+            var partidaDTO = await _context.Fatopartida
                 .Include(p => p.Estadio)
                 .Include(p => p.Juiz)
+                .Include(p => p.Data)
                 .Include(p => p.PontePartidaTimes)
-                    .ThenInclude(pt => pt.Time)
+                .Select(p => new PartidaDTOs
+                {
+                    PartidaId = p.PartidaId,                  
+                    Estadio = p.Estadio.Nome,
+                    Juiz = p.Juiz.Nome,
+                    Data = p.Data.Data,
+                    Publico = p.Publico,
+                    Renda = p.Renda,
+                    Resultado = p.Resultado,
+                    Times = p.PontePartidaTimes
+                        .Join(_context.DimClubes,
+                            pt => pt.Timeid,
+                            c => c.TimeId,
+                            (pt, c) => new ClubeDTOs
+                            {
+                                Nome = c.Nome,
+                            })
+                        .ToList(),
+                })
                 .ToListAsync();
 
-            var partidasDTO = new List<PartidaDTOs>();
-
-            foreach (var partida in partidas)
+            if (partidaDTO == null || !partidaDTO.Any())
             {
-                var dto = new PartidaDTOs
-                {
-                    PartidaId = partida.PartidaId,
-                    Estadio = partida.Estadio?.Nome ?? "Não informado",
-                    Juiz = partida.Juiz?.Nome ?? "Não informado",
-                    Data = partida.Data?.Data,
-                    Publico = partida.Publico,
-                    Renda = partida.Renda,
-                    Resultado = partida.Resultado,
-                    Times = new List<NomeClubeDTOs>()
-                };
-
-                if (partida.PontePartidaTimes != null)
-                {
-                    var timesList = partida.PontePartidaTimes.ToList();
-                    for (int i = 0; i < timesList.Count; i++)
-                    {
-                        var ponteTime = timesList[i];
-                        if (ponteTime?.Time != null)
-                        {
-                            dto.Times.Add(new NomeClubeDTOs
-                            {
-                                Nome = ponteTime.Time.Nome ?? "Não informado",
-                                TimeId = ponteTime.Time.TimeId,
-                                CasaOuFora = i == 0 ? "Casa" : "Fora"
-                            });
-                        }
-                    }
-                }
-
-                partidasDTO.Add(dto);
+                return NotFound();
             }
 
-            return partidasDTO;
+            return partidaDTO;
         }
 
         // GET: api/Partidas/5
