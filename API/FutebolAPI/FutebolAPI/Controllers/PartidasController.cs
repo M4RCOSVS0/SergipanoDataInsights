@@ -23,6 +23,8 @@ namespace FutebolAPI.Controllers
             var partidaDTO = await _context.Fatopartida
                 .Include(p => p.Estadio)
                 .Include(p => p.Juiz)
+                .Include(p => p.Data)
+                .Include(p => p.PontePartidaTimes)
                 .Select(p => new PartidaDTOs
                 {
                     PartidaId = p.PartidaId,                  
@@ -31,9 +33,25 @@ namespace FutebolAPI.Controllers
                     Data = p.Data.Data,
                     Publico = p.Publico,
                     Renda = p.Renda,
-                    Resultado = p.Resultado
+                    Resultado = p.Resultado,
+                    Times = p.PontePartidaTimes
+                        .Join(_context.DimClubes,
+                            pt => pt.Timeid,
+                            c => c.TimeId,
+                            (pt, c) => new ClubeDTOs
+                            {
+                                Nome = c.Nome,
+                            })
+                        .ToList(),
                 })
                 .ToListAsync();
+
+            if (partidaDTO == null || !partidaDTO.Any())
+            {
+                return NotFound();
+            }
+
+            return partidaDTO;
         }
 
         // GET: api/Partidas/5

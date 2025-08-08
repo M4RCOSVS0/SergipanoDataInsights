@@ -3,28 +3,12 @@
   "WorkspaceRootPath": "D:\\Documentos\\GitHub\\Colab Projetos\\SergipanoDataInsights\\API\\FutebolAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|d:\\documentos\\github\\colab projetos\\sergipanodatainsights\\api\\futebolapi\\futebolapi\\controllers\\partidascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|solutionrelative:futebolapi\\controllers\\partidascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|d:\\documentos\\github\\colab projetos\\sergipanodatainsights\\api\\futebolapi\\futebolapi\\dtos\\clubedtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|solutionrelative:futebolapi\\dtos\\clubedtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|d:\\documentos\\github\\colab projetos\\sergipanodatainsights\\api\\futebolapi\\futebolapi\\dtos\\partidadtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|solutionrelative:futebolapi\\dtos\\partidadtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|d:\\documentos\\github\\colab projetos\\sergipanodatainsights\\api\\futebolapi\\futebolapi\\models\\fatopartidum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|solutionrelative:futebolapi\\models\\fatopartidum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|d:\\documentos\\github\\colab projetos\\sergipanodatainsights\\api\\futebolapi\\futebolapi\\controllers\\clubescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|solutionrelative:futebolapi\\controllers\\clubescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|d:\\documentos\\github\\colab projetos\\sergipanodatainsights\\api\\futebolapi\\futebolapi\\dtos\\cartaodtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|solutionrelative:futebolapi\\dtos\\cartaodtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|d:\\documentos\\github\\colab projetos\\sergipanodatainsights\\api\\futebolapi\\futebolapi\\dtos\\goldtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|solutionrelative:futebolapi\\dtos\\goldtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|d:\\documentos\\github\\colab projetos\\sergipanodatainsights\\api\\futebolapi\\futebolapi\\controllers\\jogadorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|solutionrelative:futebolapi\\controllers\\jogadorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|d:\\documentos\\github\\colab projetos\\sergipanodatainsights\\api\\futebolapi\\futebolapi\\dtos\\jogadordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,12 +19,20 @@
       "RelativeMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|solutionrelative:futebolapi\\models\\dimclube.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|d:\\documentos\\github\\colab projetos\\sergipanodatainsights\\api\\futebolapi\\futebolapi\\dtos\\clubedtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|solutionrelative:futebolapi\\dtos\\clubedtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|d:\\documentos\\github\\colab projetos\\sergipanodatainsights\\api\\futebolapi\\futebolapi\\dtos\\goldtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|solutionrelative:futebolapi\\dtos\\goldtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|d:\\documentos\\github\\colab projetos\\sergipanodatainsights\\api\\futebolapi\\futebolapi\\controllers\\jogadorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|solutionrelative:futebolapi\\controllers\\jogadorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|d:\\documentos\\github\\colab projetos\\sergipanodatainsights\\api\\futebolapi\\futebolapi\\dtos\\partidadtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|solutionrelative:futebolapi\\dtos\\partidadtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|d:\\documentos\\github\\colab projetos\\sergipanodatainsights\\api\\futebolapi\\futebolapi\\controllers\\partidascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|solutionrelative:futebolapi\\controllers\\partidascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|d:\\documentos\\github\\colab projetos\\sergipanodatainsights\\api\\futebolapi\\futebolapi\\dtos\\cartaodtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC774F7A-8DC7-4AF7-86BB-88EDAF748953}|FutebolAPI\\FutebolAPI.csproj|solutionrelative:futebolapi\\dtos\\cartaodtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,24 +42,44 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 9,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
+              "Title": "PartidaDTOs.cs",
+              "DocumentMoniker": "D:\\Documentos\\GitHub\\Colab Projetos\\SergipanoDataInsights\\API\\FutebolAPI\\FutebolAPI\\DTOs\\PartidaDTOs.cs",
+              "RelativeDocumentMoniker": "FutebolAPI\\DTOs\\PartidaDTOs.cs",
+              "ToolTip": "D:\\Documentos\\GitHub\\Colab Projetos\\SergipanoDataInsights\\API\\FutebolAPI\\FutebolAPI\\DTOs\\PartidaDTOs.cs",
+              "RelativeToolTip": "FutebolAPI\\DTOs\\PartidaDTOs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T21:57:25.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "PartidasController.cs",
               "DocumentMoniker": "D:\\Documentos\\GitHub\\Colab Projetos\\SergipanoDataInsights\\API\\FutebolAPI\\FutebolAPI\\Controllers\\PartidasController.cs",
               "RelativeDocumentMoniker": "FutebolAPI\\Controllers\\PartidasController.cs",
               "ToolTip": "D:\\Documentos\\GitHub\\Colab Projetos\\SergipanoDataInsights\\API\\FutebolAPI\\FutebolAPI\\Controllers\\PartidasController.cs",
               "RelativeToolTip": "FutebolAPI\\Controllers\\PartidasController.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAACAAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACcAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T21:59:43.881Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-02T21:59:43.881Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "CartaoDTOs.cs",
               "DocumentMoniker": "D:\\Documentos\\GitHub\\Colab Projetos\\SergipanoDataInsights\\API\\FutebolAPI\\FutebolAPI\\DTOs\\CartaoDTOs.cs",
               "RelativeDocumentMoniker": "FutebolAPI\\DTOs\\CartaoDTOs.cs",
@@ -75,12 +87,11 @@
               "RelativeToolTip": "FutebolAPI\\DTOs\\CartaoDTOs.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T21:58:25.282Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-02T21:58:25.282Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "GolDTOs.cs",
               "DocumentMoniker": "D:\\Documentos\\GitHub\\Colab Projetos\\SergipanoDataInsights\\API\\FutebolAPI\\FutebolAPI\\DTOs\\GolDTOs.cs",
               "RelativeDocumentMoniker": "FutebolAPI\\DTOs\\GolDTOs.cs",
@@ -93,7 +104,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "DimClube.cs",
               "DocumentMoniker": "D:\\Documentos\\GitHub\\Colab Projetos\\SergipanoDataInsights\\API\\FutebolAPI\\FutebolAPI\\Models\\DimClube.cs",
               "RelativeDocumentMoniker": "FutebolAPI\\Models\\DimClube.cs",
@@ -106,7 +117,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "JogadorDTO.cs",
               "DocumentMoniker": "D:\\Documentos\\GitHub\\Colab Projetos\\SergipanoDataInsights\\API\\FutebolAPI\\FutebolAPI\\DTOs\\JogadorDTO.cs",
               "RelativeDocumentMoniker": "FutebolAPI\\DTOs\\JogadorDTO.cs",
@@ -119,7 +130,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
               "Title": "JogadoresController.cs",
               "DocumentMoniker": "D:\\Documentos\\GitHub\\Colab Projetos\\SergipanoDataInsights\\API\\FutebolAPI\\FutebolAPI\\Controllers\\JogadoresController.cs",
               "RelativeDocumentMoniker": "FutebolAPI\\Controllers\\JogadoresController.cs",
@@ -132,103 +143,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "ClubeDTOs.cs",
               "DocumentMoniker": "D:\\Documentos\\GitHub\\Colab Projetos\\SergipanoDataInsights\\API\\FutebolAPI\\FutebolAPI\\DTOs\\ClubeDTOs.cs",
               "RelativeDocumentMoniker": "FutebolAPI\\DTOs\\ClubeDTOs.cs",
               "ToolTip": "D:\\Documentos\\GitHub\\Colab Projetos\\SergipanoDataInsights\\API\\FutebolAPI\\FutebolAPI\\DTOs\\ClubeDTOs.cs",
               "RelativeToolTip": "FutebolAPI\\DTOs\\ClubeDTOs.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-02T21:20:39.954Z",
               "EditorCaption": ""
             }
           ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "3c7b17db-fe7c-4ba5-957a-f19d3f336963",
-        "Display": 0,
-        "X": 1156,
-        "Y": 205,
-        "Width": 920,
-        "Height": 938,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ClubesController.cs",
-              "DocumentMoniker": "D:\\Documentos\\GitHub\\Colab Projetos\\SergipanoDataInsights\\API\\FutebolAPI\\FutebolAPI\\Controllers\\ClubesController.cs",
-              "RelativeDocumentMoniker": "FutebolAPI\\Controllers\\ClubesController.cs",
-              "ToolTip": "D:\\Documentos\\GitHub\\Colab Projetos\\SergipanoDataInsights\\API\\FutebolAPI\\FutebolAPI\\Controllers\\ClubesController.cs",
-              "RelativeToolTip": "FutebolAPI\\Controllers\\ClubesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T21:20:21.399Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 1,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "4402fae8-b5b1-4c0e-ad8d-4365f5a800f0",
-        "Display": 0,
-        "X": 749,
-        "Y": 225,
-        "Width": 920,
-        "Height": 938,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedHeight": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PartidaDTOs.cs",
-              "DocumentMoniker": "D:\\Documentos\\GitHub\\Colab Projetos\\SergipanoDataInsights\\API\\FutebolAPI\\FutebolAPI\\DTOs\\PartidaDTOs.cs",
-              "RelativeDocumentMoniker": "FutebolAPI\\DTOs\\PartidaDTOs.cs",
-              "ToolTip": "D:\\Documentos\\GitHub\\Colab Projetos\\SergipanoDataInsights\\API\\FutebolAPI\\FutebolAPI\\DTOs\\PartidaDTOs.cs",
-              "RelativeToolTip": "FutebolAPI\\DTOs\\PartidaDTOs.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T22:02:05.283Z",
-              "EditorCaption": ""
-            }
-          ]
         },
         {
-          "DockedHeight": 200,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 1522,
+          "SelectedChildIndex": -1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Fatopartidum.cs",
-              "DocumentMoniker": "D:\\Documentos\\GitHub\\Colab Projetos\\SergipanoDataInsights\\API\\FutebolAPI\\FutebolAPI\\Models\\Fatopartidum.cs",
-              "RelativeDocumentMoniker": "FutebolAPI\\Models\\Fatopartidum.cs",
-              "ToolTip": "D:\\Documentos\\GitHub\\Colab Projetos\\SergipanoDataInsights\\API\\FutebolAPI\\FutebolAPI\\Models\\Fatopartidum.cs",
-              "RelativeToolTip": "FutebolAPI\\Models\\Fatopartidum.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAA5wBUAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T22:02:40.988Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
             }
           ]
         }
