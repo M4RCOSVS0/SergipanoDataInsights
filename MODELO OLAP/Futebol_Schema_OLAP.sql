@@ -184,15 +184,49 @@ SELECT
     ppt.PosseDeBola,
     ppt.Escanteios,
     ppt.ChutesAGol,
-    ppt.Impedimentos
+    ppt.Impedimentos,
+    COALESCE(COUNT(fg.GolID), 0) AS Gols,
+    CASE
+        WHEN COALESCE(COUNT(fg.GolID), 0) > (
+            SELECT MAX(gols_adversario.total_gols)
+            FROM (
+                SELECT COUNT(fg2.GolID) as total_gols
+                FROM PontePartidaTime ppt2
+                LEFT JOIN fatogol fg2 ON fg2.PartidaID = ppt2.PARTIDAID
+                                       AND fg2.TimeID = ppt2.TIMEID
+                                       AND fg2.GOLCONTRA = 0
+                WHERE ppt2.PARTIDAID = ppt.PARTIDAID
+                  AND ppt2.TIMEID != ppt.TIMEID
+                GROUP BY ppt2.TIMEID
+            ) gols_adversario
+        ) THEN 'VITORIA'
+        WHEN COALESCE(COUNT(fg.GolID), 0) = (
+            SELECT MAX(gols_adversario.total_gols)
+            FROM (
+                SELECT COUNT(fg2.GolID) as total_gols
+                FROM PontePartidaTime ppt2
+                LEFT JOIN fatogol fg2 ON fg2.PartidaID = ppt2.PARTIDAID
+                                       AND fg2.TimeID = ppt2.TIMEID
+                                       AND fg2.GOLCONTRA = 0
+                WHERE ppt2.PARTIDAID = ppt.PARTIDAID
+                  AND ppt2.TIMEID != ppt.TIMEID
+                GROUP BY ppt2.TIMEID
+            ) gols_adversario
+        ) THEN 'EMPATE'
+        ELSE 'DERROTA'
+    END AS Resultado
 FROM
     PontePartidaTime ppt
 LEFT JOIN
     DimClube d ON d.TimeID = ppt.TimeID
+LEFT JOIN
+    fatogol fg ON fg.PartidaID = ppt.PARTIDAID
+                 AND fg.TimeID = ppt.TIMEID
+                 AND fg.GOLCONTRA = 0  -- Excluir gols contra
 GROUP BY
     ppt.TIMEID, ppt.PARTIDAID, d.Nome, ppt.PosseDeBola, ppt.Escanteios, ppt.ChutesAGol, ppt.Impedimentos
-order by
-    ppt.PARTIDAID
+ORDER BY
+    ppt.PARTIDAID;
 
 
 

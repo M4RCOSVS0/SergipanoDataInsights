@@ -145,6 +145,11 @@ INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Danilo', 'ME
 
 INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Ueslei', 'ATACANTE', NULL, 4); -- JogadorID: 79
 
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Otavio', 'MEIA', NULL, 9); -- JogadorID: 80
+
+INSERT INTO DimJogador (Nome, Posicao, Nascimento, TimeID) VALUES ('Blade', 'ATACANTE', NULL, 7); -- JogadorID: 81
+
+
 -- Insert dates - converting from DD-MMM format to proper dates (assuming 2024 year)
 INSERT INTO DimData (Data, Ano, Mes, Dia, DiaSemana) VALUES
 ('2025-01-11', 2025, 1, 11, 'SAB'),
@@ -592,12 +597,12 @@ VALUES (7, 52, 48, 1, 5, 1), (4, 52, 52, 3, 4, 1);
 -- For rodada 13 (final)
 -- Itabaiana x America (1x2)
 INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (9, 53, 55, 10, 5, 2), (4, 53, 45, 7, 4, 0);
+VALUES (9, 53, 55, 10, 5, 2), (7, 53, 45, 7, 4, 0);
 
 -- For rodada 14 (final)
 -- Confiança x Itabaiana (1x1)
 INSERT INTO PontePartidaTime (TIMEID, PARTIDAID, PosseDeBola, Escanteios, ChutesAGol, Impedimentos)
-VALUES (7, 54, 42, 3, 2, 0), (9, 52, 28, 9, 5, 2);
+VALUES (7, 54, 42, 3, 2, 0), (9, 54, 28, 9, 5, 2);
 
 -- Rodada 1
 -- Sergipe x Barra (1x1)
@@ -866,21 +871,21 @@ values (51, 55,9,43,2);
 -- Confiança x falcon(3x0)
 INSERT INTO fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
 values (52,35,7,18,1),
-       (52,0,7,29,1), --tem q criar o jogador aff
+       (52,80,7,29,1),
        (52,40,7,44,2);
 
 --Rodada 13
 --Itabaiana X Confiança
 Insert Into fatogol(PartidaID, JogadorID, TimeID, Minuto, Tempo)
-values(53,0,7,0,1),
-      (53,0,9,0,1),
-      (53,0,7,0,2);
+values(53,81,7,69,2),
+      (53,51,9,22,1),
+      (53,40,7,4,2);
 
 --Rodada 14
 --Itabaiana x Confiança
 Insert Into fatogol(partidaid, jogadorid, timeid, minuto, tempo)
-values(54,0,9,0,1),
-      (54,0,9,0,2);
+values(54,68,9,18,1),
+      (54,37,7,48,2);
 
 
 -- RODADA 1

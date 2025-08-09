@@ -1,0 +1,2 @@
+Total_Games,Total_Teams,Victories,Draws,Defeats,Total_Goals,Avg_Possession,Model_Used
+108,10,27,54,27,93,49.81481481481482,Random Forest
