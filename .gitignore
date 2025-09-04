@@ -1,5 +1,61 @@
-MODELO OLAP/DIM_JOGADOR.sql
-# Ignorar pastas de build do .NET
+# Ignorar arquivos e pastas específicos do projeto .NET e de APIs
+
+# Pastas de build do .NET
 bin/
 obj/
 vs/
+
+# Pastas de build comuns em APIs
+build/
+out/
+dist/
+temp/
+tmp/
+
+# Arquivos de configuração e logs temporários
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Credenciais e dados sensíveis
+*.env
+.env.*
+*.secret
+*.key
+*.pem
+
+# Diretórios e arquivos de IDEs/editor
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Dependências (caso use Node.js, Python, etc.)
+node_modules/
+__pycache__/
+*.pyc
+
+# Banco de dados local, cache e arquivos de dados temporários
+*.db
+*.sqlite*
+*.mdb
+*.accdb
+*.csv
+*.xls
+*.xlsx
+*.json
+*.xml
+
+# Diretórios de testes e relatórios
+test-results/
+coverage/
+reports/
+
+# Ignorar arquivos específicos do projeto
+MODELO OLAP/DIM_JOGADOR.sql
+
+# Arquivos gerados automaticamente por sistemas operacionais
+.DS_Store
+Thumbs.db
