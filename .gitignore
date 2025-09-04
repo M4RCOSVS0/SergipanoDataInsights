@@ -59,3 +59,6 @@ MODELO OLAP/DIM_JOGADOR.sql
 # Arquivos gerados automaticamente por sistemas operacionais
 .DS_Store
 Thumbs.db
+API/FutebolAPI/.vs/FutebolAPI/v17/.futdcache.v2
+API/FutebolAPI/.vs/FutebolAPI/v17/.suo
+API/FutebolAPI/.vs/FutebolAPI/v17/DocumentLayout.backup.json
