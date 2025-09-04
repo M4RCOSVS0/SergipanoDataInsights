@@ -147,19 +147,28 @@ namespace FutebolAPI.Controllers
 
         // GET: api/Jogadores/artilharia
         [HttpGet("artilharia")]
-        public async Task<ActionResult<IEnumerable<JogadorDTO>>> GetArtilharia()
+        public async Task<ActionResult<IEnumerable<JogadorDTO>>> GetArtilharia([FromQuery] int? minGols)
         {
-            var jogadoresDTO = await _context.DimJogadors
+            var query = _context.DimJogadors
                 .Include(j => j.Time)
                 .Include(j => j.AggArtilharium)
+                .AsQueryable();//controí a query em etapas  
+
+            // Lógica para aplicar o filtro se o parâmetro for fornecido
+            if (minGols.HasValue)
+            {
+                query = query.Where(j => j.AggArtilharium != null && j.AggArtilharium.Gols >= minGols.Value);
+            }
+
+            var jogadoresDTO = await query
                 .Select(j => new JogadorDTO
                 {
                     JogadorId = j.JogadorId,
-                    Nome = j.Nome,
-                    Posicao = j.Posicao,
+                    Nome = j.Nome!,
+                    Posicao = j.Posicao!,
                     Nascimento = j.Nascimento,
                     TimeId = j.TimeId,
-                    TimeNome = j.Time != null ? j.Time.Nome : null,
+                    TimeNome = j.Time != null ? j.Time.Nome! : null,
                     NumeroGols = j.AggArtilharium != null ? j.AggArtilharium.Gols : null
                 })
                 .OrderByDescending(a => a.NumeroGols)

@@ -16,11 +16,19 @@ namespace FutebolAPI.Controllers
             _context = context;
         }
 
-        // GET: api/Clubes
+        // GET: api/Clubes?minTitulos=10 (opcional)
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ClubeDTOs>>> GetClubes()
+        public async Task<ActionResult<IEnumerable<ClubeDTOs>>> GetClubes([FromQuery] int? minTitulos)
         {
-            var clubesDTO = await _context.DimClubes
+            var query = _context.DimClubes.AsQueryable();
+
+            // Se minTitulos foi fornecido, filtra os clubes
+            if (minTitulos.HasValue)
+            {
+                query = query.Where(c => c.Titulos >= minTitulos);
+            }
+
+            var clubes = await query
                 .Select(c => new ClubeDTOs
                 {
                     TimeId = c.TimeId,
@@ -33,7 +41,12 @@ namespace FutebolAPI.Controllers
                 })
                 .ToListAsync();
 
-            return clubesDTO;
+            if (clubes == null || !clubes.Any())
+            {
+                return NotFound();
+            }
+
+            return clubes;
         }
 
         // GET: api/Clubes/5
@@ -88,30 +101,6 @@ namespace FutebolAPI.Controllers
             return clubes;
         }
 
-        // GET: api/Clubes/titulos/10
-        [HttpGet("titulos/{minTitulos}")]
-        public async Task<ActionResult<IEnumerable<ClubeDTOs>>> GetClubesByTitulos(int minTitulos)
-        {
-            var clubes = await _context.DimClubes
-                .Where(c => c.Titulos >= minTitulos)
-                .Select(c => new ClubeDTOs
-                {
-                    TimeId = c.TimeId,
-                    Nome = c.Nome,
-                    Titulos = c.Titulos,
-                    Participacoes = c.Participacoes,
-                    Fundacao = c.Fundacao,
-                    Sede = c.Sede,
-                    Escudo = c.Escudo
-                })
-                .ToListAsync();
-
-            if (clubes == null || !clubes.Any())
-            {
-                return NotFound();
-            }
-
-            return clubes;
-        }
+        
     }
 }
