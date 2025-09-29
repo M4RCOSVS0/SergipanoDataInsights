@@ -2,6 +2,7 @@
 using FutebolAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FutebolAPI.Controllers
 {
@@ -17,6 +18,7 @@ namespace FutebolAPI.Controllers
         }
 
         // GET: api/Partidas
+        [Authorize(Roles = "user")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PartidaDTOs>>> GetPartidas()
         {
@@ -55,6 +57,7 @@ namespace FutebolAPI.Controllers
         }
 
         // GET: api/Partidas/5
+        [Authorize(Roles = "user")]
         [HttpGet("{id}")]
         public async Task<ActionResult<Fatopartidum>> GetPartida(int id)
         {
@@ -69,6 +72,7 @@ namespace FutebolAPI.Controllers
         }
 
         // GET: api/Partidas/estadio/5
+        [Authorize(Roles = "user")]
         [HttpGet("estadio/{estadioId}")]
         public async Task<ActionResult<IEnumerable<Fatopartidum>>> GetPartidasByEstadio(int estadioId)
         {
@@ -85,6 +89,7 @@ namespace FutebolAPI.Controllers
         }
 
         // GET: api/Partidas/detalhes/5
+        [Authorize(Roles = "user")]
         [HttpGet("detalhes/{id}")]
         public async Task<ActionResult<object>> GetPartidaDetalhes(int id)
         {

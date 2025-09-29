@@ -5,7 +5,41 @@ GO
 
 USE futebol_OLAP_db;
 GO
--- Dimension Tables
+
+-- ============================================
+-- AUTHENTICATION TABLES
+-- ============================================
+
+-- Users Table
+CREATE TABLE [Users] (
+    [Id] uniqueidentifier NOT NULL DEFAULT NEWID(),
+    [Username] nvarchar(50) NOT NULL,
+    [Email] nvarchar(100) NOT NULL,
+    [PasswordHash] nvarchar(max) NOT NULL,
+    [Role] nvarchar(20) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL DEFAULT GETDATE(),
+    [IsActive] bit NOT NULL DEFAULT 1,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+GO
+
+-- RefreshTokens Table
+CREATE TABLE [RefreshTokens] (
+    [Id] uniqueidentifier NOT NULL DEFAULT NEWID(),
+    [UserId] uniqueidentifier NOT NULL,
+    [Token] nvarchar(128) NOT NULL,
+    [ExpiresAt] datetime2 NOT NULL,
+    [CreatedAt] datetime2 NOT NULL DEFAULT GETDATE(),
+    [IsRevoked] bit NOT NULL DEFAULT 0,
+    CONSTRAINT [PK_RefreshTokens] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RefreshTokens_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+GO
+
+-- ============================================
+-- DIMENSION TABLES
+-- ============================================
+
 -- Dim Data Table
 CREATE TABLE DimData (
     DataID INT PRIMARY KEY IDENTITY(1,1),
@@ -16,6 +50,7 @@ CREATE TABLE DimData (
     DiaSemana CHAR(3) NULL,
     CHECK(DiaSemana IN('DOM','SEG','TER','QUA','QUI','SEX','SAB'))
 );
+GO
 
 -- Dim Stadium Table
 CREATE TABLE DimEstadio (
@@ -26,6 +61,7 @@ CREATE TABLE DimEstadio (
     Latitude FLOAT NULL,
     Longitude FLOAT NULL
 );
+GO
 
 -- Dim Team Table
 CREATE TABLE DimClube (
@@ -37,7 +73,7 @@ CREATE TABLE DimClube (
     Sede NVARCHAR(30) NOT NULL,
     Escudo NVARCHAR(1000) NULL
 );
-
+GO
 
 -- Dim Player Table
 CREATE TABLE DimJogador (
@@ -48,13 +84,16 @@ CREATE TABLE DimJogador (
     TimeID INT NULL,
     FOREIGN KEY (TimeID) REFERENCES DimClube(TimeID)
 );
+GO
 
+-- Aggregate Artilharia Table
 CREATE TABLE AggArtilharia(
-    JogadorID INT not null ,
+    JogadorID INT NOT NULL,
     Gols INT,
     FOREIGN KEY (JogadorID) REFERENCES DimJogador(JogadorID),
-    primary key(jogadorID)
-)
+    PRIMARY KEY(JogadorID)
+);
+GO
 
 -- Dim Referee Table
 CREATE TABLE DimJuiz (
@@ -63,8 +102,12 @@ CREATE TABLE DimJuiz (
     Nivel NVARCHAR(45) NULL,
     CHECK(Nivel IN('ESTADUAL','NACIONAL','INTERNACIONAL'))
 );
+GO
 
--- Fact Tables
+-- ============================================
+-- FACT TABLES
+-- ============================================
+
 -- Fact Match Table
 CREATE TABLE fatopartida (
     PartidaID INT NOT NULL IDENTITY(1,1),
@@ -77,9 +120,11 @@ CREATE TABLE fatopartida (
     PRIMARY KEY (PartidaID),
     FOREIGN KEY (DataID) REFERENCES dimdata(DataID),
     FOREIGN KEY (EstadioID) REFERENCES dimestadio(EstadioID),
-    FOREIGN KEY (JuizID) REFERENCES dimjuiz(JuizID),
+    FOREIGN KEY (JuizID) REFERENCES dimjuiz(JuizID)
 );
+GO
 
+-- Bridge Table Match-Team
 CREATE TABLE PontePartidaTime(
     TIMEID INT NOT NULL,
     PARTIDAID INT NOT NULL,
@@ -90,7 +135,8 @@ CREATE TABLE PontePartidaTime(
     FOREIGN KEY (TIMEID) REFERENCES DimClube(TIMEID),
     FOREIGN KEY (PARTIDAID) REFERENCES fatopartida(PartidaID),
     PRIMARY KEY(TIMEID,PARTIDAID)
-)
+);
+GO
 
 -- Fact Card Table
 CREATE TABLE fatocartao (
@@ -105,11 +151,12 @@ CREATE TABLE fatocartao (
     FOREIGN KEY (JogadorID) REFERENCES dimjogador(JogadorID),
     FOREIGN KEY (TimeID) REFERENCES DimClube(TimeID)
 );
+GO
 
 -- Fact Classification Table
 CREATE TABLE fatoclassificacao (
-    RodadaID INT not null,
-    TimeID INT not null,
+    RodadaID INT NOT NULL,
+    TimeID INT NOT NULL,
     Pontos INT NULL,
     Jogos INT NULL,
     Vitorias INT NULL,
@@ -117,10 +164,11 @@ CREATE TABLE fatoclassificacao (
     Derrotas INT NULL,
     GolsPro INT NULL,
     GolsContra INT NULL,
-    Saldo as GolsPro - GolsContra,
-    primary key (RodadaID,TimeID),
+    Saldo AS GolsPro - GolsContra,
+    PRIMARY KEY (RodadaID,TimeID),
     FOREIGN KEY (TimeID) REFERENCES DimClube(TimeID)
 );
+GO
 
 -- Fact Goal Table
 CREATE TABLE fatogol (
@@ -137,7 +185,11 @@ CREATE TABLE fatogol (
     FOREIGN KEY (TimeID) REFERENCES DimClube(TimeID),
     PRIMARY KEY(GolID)
 );
+GO
 
+-- ============================================
+-- TRIGGERS
+-- ============================================
 
 CREATE OR ALTER TRIGGER trg_UpdateArtilharia
 ON fatogol
@@ -167,7 +219,54 @@ BEGIN
     AND ISNULL(i.GOLCONTRA, 0) = 0 -- Não conta gols contra
     GROUP BY i.JogadorID; -- Agrupa para contar múltiplos gols do mesmo jogador
 END;
+GO
 
+-- ============================================
+-- INDEXES
+-- ============================================
+
+-- Authentication Indexes
+CREATE UNIQUE INDEX [IX_Users_Email] ON [Users] ([Email]);
+GO
+CREATE UNIQUE INDEX [IX_Users_Username] ON [Users] ([Username]);
+GO
+CREATE UNIQUE INDEX [IX_RefreshTokens_Token] ON [RefreshTokens] ([Token]);
+GO
+CREATE INDEX [IX_RefreshTokens_UserId_ExpiresAt] ON [RefreshTokens] ([UserId], [ExpiresAt]);
+GO
+
+-- Football Database Indexes
+CREATE INDEX [IX_DimJogador_TimeID] ON [DimJogador] ([TimeID]);
+GO
+CREATE INDEX [IX_fatocartao_JogadorID] ON [fatocartao] ([JogadorID]);
+GO
+CREATE INDEX [IX_fatocartao_PartidaID] ON [fatocartao] ([PartidaID]);
+GO
+CREATE INDEX [IX_fatocartao_TimeID] ON [fatocartao] ([TimeID]);
+GO
+CREATE INDEX [IX_fatoclassificacao_TimeID] ON [fatoclassificacao] ([TimeID]);
+GO
+CREATE INDEX [IX_fatogol_JogadorID] ON [fatogol] ([JogadorID]);
+GO
+CREATE INDEX [IX_fatogol_PartidaID] ON [fatogol] ([PartidaID]);
+GO
+CREATE INDEX [IX_fatogol_TimeID] ON [fatogol] ([TimeID]);
+GO
+CREATE INDEX [IX_fatopartida_DataID] ON [fatopartida] ([DataID]);
+GO
+CREATE INDEX [IX_fatopartida_EstadioID] ON [fatopartida] ([EstadioID]);
+GO
+CREATE INDEX [IX_fatopartida_JuizID] ON [fatopartida] ([JuizID]);
+GO
+CREATE INDEX [IX_PontePartidaTime_PARTIDAID] ON [PontePartidaTime] ([PARTIDAID]);
+GO
+
+-- ============================================
+-- EXAMPLE QUERIES
+-- ============================================
+
+-- Artilharia Query
+/*
 SELECT
     dj.Nome AS 'Nome do Jogador',
     COUNT(fg.GolID) AS 'Número de Gols',
@@ -176,9 +275,11 @@ FROM fatogol fg
 JOIN DimJogador dj ON dj.JogadorID = fg.JogadorID
 JOIN DimClube dc ON dc.TimeID = dj.TimeID
 GROUP BY dj.Nome, dc.Nome
-ORDER BY COUNT(fg.GolID) DESC
+ORDER BY COUNT(fg.GolID) DESC;
+*/
 
 -- Base para mineração
+/*
 SELECT
     d.Nome AS NomeTime,
     ppt.PosseDeBola,
@@ -227,6 +328,4 @@ GROUP BY
     ppt.TIMEID, ppt.PARTIDAID, d.Nome, ppt.PosseDeBola, ppt.Escanteios, ppt.ChutesAGol, ppt.Impedimentos
 ORDER BY
     ppt.PARTIDAID;
-
-
-
+*/
