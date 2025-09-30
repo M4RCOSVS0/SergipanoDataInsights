@@ -62,3 +62,38 @@ Thumbs.db
 API/FutebolAPI/.vs/FutebolAPI/v17/.futdcache.v2
 API/FutebolAPI/.vs/FutebolAPI/v17/.suo
 API/FutebolAPI/.vs/FutebolAPI/v17/DocumentLayout.backup.json
+
+# Flutter/Dart build outputs
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+.melos_tool/
+
+# IDE files
+*.iml
+*.ipr
+*.iws
+
+# Android Studio
+.android/
+local.properties
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Generated.xcconfig
+
+# Web
+web/.dart_tool/
+
+# Misc
+*.lock
+*.snapshot
+*.dart_tool/
+
+.env
