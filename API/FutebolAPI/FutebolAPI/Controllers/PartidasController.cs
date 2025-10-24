@@ -18,37 +18,58 @@ namespace FutebolAPI.Controllers
         }
 
         // GET: api/Partidas
-        [Authorize(Roles = "user")]
+        //[Authorize(Roles = "user")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PartidaDTOs>>> GetPartidas()
         {
             var partidaDTO = await _context.Fatopartida
-                .Include(p => p.Estadio)
-                .Include(p => p.Juiz)
-                .Include(p => p.Data)
-                .Include(p => p.PontePartidaTimes)
-                .Select(p => new PartidaDTOs
-                {
-                    PartidaId = p.PartidaId,                  
-                    Estadio = p.Estadio.Nome,
-                    Juiz = p.Juiz.Nome,
-                    Data = p.Data.Data,
-                    Publico = p.Publico,
-                    Renda = p.Renda,
-                    Resultado = p.Resultado,
-                    Times = p.PontePartidaTimes
+              .Include(p => p.Estadio)
+              .Include(p => p.Juiz)
+              .Include(p => p.Data)
+              .Include(p => p.PontePartidaTimes)
+              .Select(p => new PartidaDTOs
+              {
+                  PartidaId = p.PartidaId,
+                  Estadio = p.Estadio.Nome,
+                  Juiz = p.Juiz.Nome,
+                  Data = (DateOnly)p.Data.Data,
+                  Publico = p.Publico,
+                  Renda = p.Renda,
+                  Resultado = p.Resultado,
+                  TimeMandante = p.PontePartidaTimes
+                        .OrderBy(pt => pt.Timeid)
                         .Join(_context.DimClubes,
                             pt => pt.Timeid,
                             c => c.TimeId,
-                            (pt, c) => new ClubeDTOs
+                            (pt, c) => c.Nome)
+                        .FirstOrDefault(),
+                  TimeVisitante = p.PontePartidaTimes
+                        .OrderBy(pt => pt.Timeid)
+                        .Join(_context.DimClubes,
+                            pt => pt.Timeid,
+                            c => c.TimeId,
+                            (pt, c) => c.Nome)
+                        .Skip(1)
+                        .FirstOrDefault(),
+                  Gols = p.Fatogols
+                        .Join(_context.DimClubes,
+                            g => g.TimeId,
+                            c => c.TimeId,
+                            (g, c) => new { Gol = g, Clube = c })
+                        .Join(_context.DimJogadors,
+                            gc => gc.Gol.JogadorId,
+                            j => j.JogadorId,
+                            (gc, j) => new GolDTOs
                             {
-                                Nome = c.Nome,
+                                Minuto = gc.Gol.Minuto,
+                                Tempo = gc.Gol.Tempo,
+                                JogadorNome = j.Nome,
+                                TimeNome = gc.Clube.Nome
                             })
-                        .ToList(),
-                })
-                .ToListAsync();
+                        .ToList()
+              }).ToListAsync();
 
-            if (partidaDTO == null || !partidaDTO.Any())
+            if (partidaDTO == null || partidaDTO.Count == 0)
             {
                 return NotFound();
             }
@@ -106,7 +127,8 @@ namespace FutebolAPI.Controllers
                 .Join(_context.DimJuizs,
                     pde => pde.Partida.JuizId,
                     j => j.JuizId,
-                    (pde, j) => new {
+                    (pde, j) => new
+                    {
                         PartidaId = pde.Partida.PartidaId,
                         Data = pde.Data.Data,
                         Estadio = pde.Estadio.Nome,
@@ -129,7 +151,8 @@ namespace FutebolAPI.Controllers
                 .Join(_context.DimClubes,
                     p => p.Timeid,
                     c => c.TimeId,
-                    (p, c) => new {
+                    (p, c) => new
+                    {
                         TimeId = c.TimeId,
                         Nome = c.Nome,
                         PosseDeBola = p.PosseDeBola,
@@ -145,7 +168,8 @@ namespace FutebolAPI.Controllers
                 .Join(_context.DimJogadors,
                     g => g.JogadorId,
                     j => j.JogadorId,
-                    (g, j) => new {
+                    (g, j) => new
+                    {
                         JogadorNome = j.Nome,
                         Minuto = g.Minuto,
                         Tempo = g.Tempo,
@@ -155,7 +179,8 @@ namespace FutebolAPI.Controllers
                 .Join(_context.DimClubes,
                     g => g.TimeId,
                     c => c.TimeId,
-                    (g, c) => new {
+                    (g, c) => new
+                    {
                         g.JogadorNome,
                         g.Minuto,
                         g.Tempo,
